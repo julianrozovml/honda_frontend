@@ -1,20 +1,134 @@
-// ── Colors ──────────────────────────────────────────────────────────────────
-$color-red: #CC0000;
-$color-red-dark: #a80000;
-$color-gray-dark: #1a1a1a;
-$color-gray: #4b5563;
-$color-gray-light: #f3f4f6;
-$color-white: #ffffff;
+// ============================================================
+// DESIGN SYSTEM — HONDA MOTOS
+// ============================================================
+
+// ------------------------------------------------------------
+// PRIMARY
+// ------------------------------------------------------------
+$color-primary-red:   #cc0000;
+$color-primary-black: #1d1d1d;
+$color-primary-white: #ffffff;
+
+// ------------------------------------------------------------
+// TONOS OSCUROS — Sólidos
+// ------------------------------------------------------------
+$color-dark-100:  #c0c0bf;
+$color-dark-200:  #a3a2a0;
+$color-dark-300:  #878784;
+$color-dark-400:  #6b6b6c;
+$color-dark-500:  #595957;
+$color-dark-600:  #484846;
+$color-dark-700:  #363b3a;
+$color-dark-800:  #343433;
+$color-dark-900:  #313130;
+$color-dark-1000: #1f1f1f;
+
+// TONOS OSCUROS — Transparencias (base #313130)
+$color-dark-10:  rgba(49, 49, 48, 0.10);
+$color-dark-30:  rgba(49, 49, 48, 0.30);
+$color-dark-50:  rgba(49, 49, 48, 0.50);
+
+// ------------------------------------------------------------
+// TONOS CLAROS — Sólidos
+// ------------------------------------------------------------
+$color-light-100:  #ffffff;
+$color-light-200:  #d9d9d0;
+$color-light-300:  #d3d3c3;
+$color-light-400:  #bdbdbd;
+$color-light-500:  #a7a7a7;
+$color-light-600:  #919191;
+$color-light-700:  #7b7b7b;
+$color-light-800:  #656565;
+$color-light-900:  #4f4f4f;
+$color-light-1000: #393939;
+
+// TONOS CLAROS — Transparencias (base #ffffff)
+$color-light-10:  rgba(255, 255, 255, 0.10);
+$color-light-30:  rgba(255, 255, 255, 0.30);
+$color-light-50:  rgba(255, 255, 255, 0.50);
+
+// ------------------------------------------------------------
+// SECUNDARIO (rojos) — Sólidos
+// ------------------------------------------------------------
+$color-secondary-100:  #f8bbbb;
+$color-secondary-200:  #f17a7a;
+$color-secondary-300:  #f04040;
+$color-secondary-400:  #f01010;
+$color-secondary-500:  #ee0000;
+$color-secondary-600:  #d30000;
+$color-secondary-700:  #bc0000;
+$color-secondary-800:  #850000;
+$color-secondary-900:  #6b0000;
+$color-secondary-1000: #3c0000;
+
+// SECUNDARIO — Transparencias (base #cc0000)
+$color-secondary-10:  rgba(204, 0, 0, 0.10);
+$color-secondary-30:  rgba(204, 0, 0, 0.30);
+$color-secondary-50:  rgba(204, 0, 0, 0.50);
+
+// ------------------------------------------------------------
+// MAPS — para iterar con @each
+// ------------------------------------------------------------
+$colors-dark: (
+  100:  $color-dark-100,
+  200:  $color-dark-200,
+  300:  $color-dark-300,
+  400:  $color-dark-400,
+  500:  $color-dark-500,
+  600:  $color-dark-600,
+  700:  $color-dark-700,
+  800:  $color-dark-800,
+  900:  $color-dark-900,
+  1000: $color-dark-1000,
+  10:   $color-dark-10,
+  30:   $color-dark-30,
+  50:   $color-dark-50,
+);
+
+$colors-light: (
+  100:  $color-light-100,
+  200:  $color-light-200,
+  300:  $color-light-300,
+  400:  $color-light-400,
+  500:  $color-light-500,
+  600:  $color-light-600,
+  700:  $color-light-700,
+  800:  $color-light-800,
+  900:  $color-light-900,
+  1000: $color-light-1000,
+  10:   $color-light-10,
+  30:   $color-light-30,
+  50:   $color-light-50,
+);
+
+$colors-secondary: (
+  100:  $color-secondary-100,
+  200:  $color-secondary-200,
+  300:  $color-secondary-300,
+  400:  $color-secondary-400,
+  500:  $color-secondary-500,
+  600:  $color-secondary-600,
+  700:  $color-secondary-700,
+  800:  $color-secondary-800,
+  900:  $color-secondary-900,
+  1000: $color-secondary-1000,
+  10:   $color-secondary-10,
+  30:   $color-secondary-30,
+  50:   $color-secondary-50,
+);
 
 // ── Typography ───────────────────────────────────────────────────────────────
 $font-sans: var(--font-geist-sans), sans-serif;
 $font-mono: var(--font-geist-mono), monospace;
 
 // ── Breakpoints ──────────────────────────────────────────────────────────────
-$bp-sm: 640px;
-$bp-md: 768px;
-$bp-lg: 1024px;
-$bp-xl: 1280px;
+$bp-xs:  320px;
+$bp-s:   375px;
+$bp-m:   425px;
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
 
 // ── Spacing ──────────────────────────────────────────────────────────────────
 $max-width: 1280px;

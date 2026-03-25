@@ -1,6 +1,18 @@
 @use "variables" as *;
 
 // ── Responsive ───────────────────────────────────────────────────────────────
+@mixin xs {
+  @media (min-width: #{$bp-xs}) { @content; }
+}
+
+@mixin s {
+  @media (min-width: #{$bp-s}) { @content; }
+}
+
+@mixin m {
+  @media (min-width: #{$bp-m}) { @content; }
+}
+
 @mixin sm {
   @media (min-width: #{$bp-sm}) { @content; }
 }
