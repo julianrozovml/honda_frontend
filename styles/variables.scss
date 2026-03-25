@@ -1,0 +1,20 @@
+// ── Colors ──────────────────────────────────────────────────────────────────
+$color-red: #CC0000;
+$color-red-dark: #a80000;
+$color-gray-dark: #1a1a1a;
+$color-gray: #4b5563;
+$color-gray-light: #f3f4f6;
+$color-white: #ffffff;
+
+// ── Typography ───────────────────────────────────────────────────────────────
+$font-sans: var(--font-geist-sans), sans-serif;
+$font-mono: var(--font-geist-mono), monospace;
+
+// ── Breakpoints ──────────────────────────────────────────────────────────────
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// ── Spacing ──────────────────────────────────────────────────────────────────
+$max-width: 1280px;
