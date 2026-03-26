@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { headers } from "next/headers";
-import { isMobile } from "@/lib/device";
+import { getIsMobile } from "@/lib/device";
 import type { HeroCampaignProps } from "./hero-campaign.types";
 import styles from "./HeroCampaign.module.scss";
 
@@ -9,9 +8,7 @@ export async function HeroCampaign({
   description,
   image,
 }: HeroCampaignProps) {
-  const headersList = await headers();
-  const ua = headersList.get("user-agent") ?? "";
-  const mobile = isMobile(ua);
+  const mobile = await getIsMobile();
 
   return (
     <section className={styles.hero}>

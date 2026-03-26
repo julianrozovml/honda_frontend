@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoHondaDark from "../../ui/LogoHondaDark/logo-honda-dark";
+import LogoHondaDark from "@/components/ui/LogoHondaDark/logo-honda-dark";
 import "./footer.scss";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ export default function Footer() {
       {/* ── Logo ───────────────────────────────────────────────────────────── */}
       <div className="footer__logo-wrapper">
         <Link href="/" aria-label="Ir al inicio">
-          <LogoHondaDark className="footer__logo" width={178} height={27} />
+          <LogoHondaDark className="footer__logo" width={178} />
         </Link>
       </div>
 

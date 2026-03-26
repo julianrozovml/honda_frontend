@@ -1,3 +1,5 @@
+"use client";
+
 import type { ButtonProps } from "./button.types";
 import styles from "./Button.module.scss";
 

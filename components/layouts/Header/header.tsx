@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoHondaRed from "../../ui/LogoHondaRed/logo-honda-red";
+import LogoHondaRed from "@/components/ui/LogoHondaRed/logo-honda-red";
 import "./header.scss";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -66,7 +66,7 @@ export default function Header() {
 
         {/* Logo */}
         <Link href="/" className="header__logo" aria-label="Ir al inicio">
-          <LogoHondaRed width={178} height={27} />
+          <LogoHondaRed width={178} />
         </Link>
 
         {/* Search */}

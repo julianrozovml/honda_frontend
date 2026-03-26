@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { headers } from "next/headers";
-import { isMobile } from "@/lib/device";
+import { getIsMobile } from "@/lib/device";
 import type { CampaignStepsSectionProps } from "./campaign-steps-section.types";
 import styles from "./CampaignStepsSection.module.scss";
 
@@ -38,9 +37,7 @@ export async function CampaignStepsSection({
   closingText,
   image,
 }: CampaignStepsSectionProps) {
-  const headersList = await headers();
-  const ua = headersList.get("user-agent") ?? "";
-  const mobile = isMobile(ua);
+  const mobile = await getIsMobile();
 
   return (
     <section className={styles.section}>
