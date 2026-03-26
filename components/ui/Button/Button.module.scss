@@ -1,0 +1,44 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// BUTTON — CSS Module
+// ============================================================
+
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  font-family:     $font-figtree;
+  font-weight:     600;
+  height: 48px;
+  line-height:     1;
+  padding: 12px 24px;
+  border:          none;
+  border-radius: 8px;
+  cursor:          pointer;
+  white-space:     nowrap;
+  text-decoration: none;
+  transition:      background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:disabled {
+    opacity:        0.5;
+    pointer-events: none;
+  }
+}
+
+// ── Variants ──────────────────────────────────────────────────────────────────
+
+.primary {
+  background-color: $color-primary-red;
+  color:            $color-primary-white;
+
+  &:hover { background-color: $color-secondary-700; }
+}
+
+.secondary {
+  background-color: $color-primary-black;
+  color:            $color-primary-white;
+
+  &:hover { background-color: $color-dark-700; }
+}

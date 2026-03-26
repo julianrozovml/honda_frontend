@@ -1,0 +1,69 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// BREADCRUMB — CSS Module
+// ============================================================
+
+.nav {
+  display:       flex;
+  align-items:   center;
+  flex-wrap:     wrap;
+  gap:           4px;
+  padding:       12px 20px;
+  background:    $color-primary-white;
+  border-bottom: 1px solid $color-dark-10;
+
+  @include lg {
+    padding: 12px 32px;
+  }
+}
+
+.inner {
+  max-width:     $max-width;
+  margin-inline: auto;
+  width:         100%;
+  display:       flex;
+  align-items:   center;
+  flex-wrap:     wrap;
+  gap:           4px;
+}
+
+.item {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+}
+
+.link {
+  font-family:     $font-figtree;
+  font-size:       14px;
+  font-weight:     400;
+  color:           $color-dark-500;
+  text-decoration: none;
+  transition:      color 0.2s ease;
+
+  @include lg { font-size: 16px; }
+
+  &:hover {
+    color:           $color-primary-red;
+    text-decoration: underline;
+  }
+}
+
+.current {
+  font-family:  $font-figtree;
+  font-size:    14px;
+  font-weight:  500;
+  color:        $color-primary-black;
+
+  @include lg { font-size: 16px; }
+}
+
+.separator {
+  font-size:   14px;
+  color:       $color-dark-300;
+  user-select: none;
+
+  @include lg { font-size: 16px; }
+}

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import LogoHondaRed from "../../ui/LogoHondaRed/logo-honda-red";
+import "./header.scss";
 
-// ── Inline SVG icons (no lucide-react dependency) ──────────────────────────
+// ── Inline SVG icons ──────────────────────────────────────────────────────────
 
 const SearchIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    className="w-4 h-4 stroke-current fill-none"
+    className="header__icon"
     strokeWidth={2.2}
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -19,7 +20,7 @@ const SearchIcon = () => (
 const UserIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    className="w-4 h-4 stroke-current fill-none"
+    className="header__icon"
     strokeWidth={1.8}
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -32,7 +33,7 @@ const UserIcon = () => (
 const CartIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    className="w-5 h-5 stroke-current fill-none"
+    className="header__icon header__icon--lg"
     strokeWidth={1.8}
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -46,7 +47,7 @@ const CartIcon = () => (
 const MapPinIcon = () => (
   <svg
     viewBox="0 0 24 24"
-    className="w-4 h-4 stroke-current fill-none"
+    className="header__icon"
     strokeWidth={1.8}
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -56,82 +57,62 @@ const MapPinIcon = () => (
   </svg>
 );
 
-// ── Component ───────────────────────────────────────────────────────────────
+// ── Component ─────────────────────────────────────────────────────────────────
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
-      <div className="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+    <header className="header">
+      <div className="header__inner">
+
         {/* Logo */}
-        <Link href="/" className="shrink-0 flex items-center">
+        <Link href="/" className="header__logo" aria-label="Ir al inicio">
           <LogoHondaRed width={178} height={27} />
         </Link>
 
-        {/* Search bar */}
-        <div className="flex flex-1 items-center max-w-xl mx-4">
-          <div className="relative w-full">
+        {/* Search */}
+        <div className="header__search">
+          <div className="header__search-wrapper">
             <input
               type="text"
               placeholder="Busca productos, accesorios, repuestos, VIN"
-              className="w-full border border-gray-300 rounded-sm py-2 pl-4 pr-10 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-gray-400"
+              className="header__search-input"
             />
-            <button
-              type="submit"
-              aria-label="Buscar"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#CC0000] hover:text-red-700 transition-colors"
-            >
+            <button type="submit" aria-label="Buscar" className="header__search-btn">
               <SearchIcon />
             </button>
           </div>
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-5 shrink-0 text-gray-700">
-          {/* Código VIN */}
-          <button
-            type="button"
-            className="flex items-center gap-2 text-sm hover:text-[#CC0000] transition-colors"
-          >
-            <span className="border border-gray-800 text-gray-800 text-[11px] font-bold px-[6px] py-[2px] rounded-sm leading-none">
-              VIN
-            </span>
-            <span className="hidden sm:inline text-sm font-medium">
-              Código VIN
-            </span>
+        {/* Actions */}
+        <div className="header__actions">
+
+          {/* VIN */}
+          <button type="button" className="header__action-btn">
+            <span className="header__vin-badge">VIN</span>
+            <span className="header__action-label">Código VIN</span>
           </button>
 
           {/* Ubicación */}
-          <button
-            type="button"
-            className="flex items-center gap-1.5 text-sm font-medium hover:text-[#CC0000] transition-colors"
-          >
+          <button type="button" className="header__action-btn">
             <MapPinIcon />
-            <span className="hidden sm:inline">Ubicación</span>
+            <span className="header__action-label">Ubicación</span>
           </button>
 
           {/* Login */}
-          <Link
-            href="/login"
-            className="flex items-center gap-1.5 text-sm font-medium hover:text-[#CC0000] transition-colors"
-          >
+          <Link href="/login" className="header__action-btn">
             <UserIcon />
-            <span className="hidden sm:inline">Login</span>
+            <span className="header__action-label">Login</span>
           </Link>
 
-          {/* Ver carrito */}
-          <Link
-            href="/carrito"
-            className="flex items-center gap-1.5 text-sm font-medium hover:text-[#CC0000] transition-colors"
-          >
-            <div className="relative">
+          {/* Carrito */}
+          <Link href="/carrito" className="header__action-btn">
+            <div className="header__cart">
               <CartIcon />
-              {/* Badge */}
-              <span className="absolute -top-2 -right-2 bg-[#CC0000] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center leading-none">
-                2
-              </span>
+              <span className="header__cart-badge">2</span>
             </div>
-            <span className="hidden sm:inline">Ver carrito</span>
+            <span className="header__action-label">Ver carrito</span>
           </Link>
+
         </div>
       </div>
     </header>

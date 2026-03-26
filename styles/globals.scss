@@ -1,1 +1,19 @@
-@import "tailwindcss";
+@use "variables" as *;
+@use "mixins" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size:   1rem;
+  font-family: $font-figtree;
+  color:       $color-primary-black;
+  background:  $color-primary-white;
+}

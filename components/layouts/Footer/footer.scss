@@ -1,194 +1,273 @@
 @use "@/styles/mixins" as *;
 @use "@/styles/variables" as *;
 
-.footer {
-  background-color: $color-white;
-  border-top: 1px solid #e5e7eb;
-  font-family: $font-sans;
-  color: #1f2937;
+// ============================================================
+// FOOTER — BEM
+// ============================================================
 
-  &__main {
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem;
+// ── Block ─────────────────────────────────────────────────────────────────────
+
+.footer {
+  background-color: $color-light-200;
+  font-family:      $font-figtree;
+  color:            $color-primary-black;
+
+  // ── Logo wrapper ────────────────────────────────────────────────────────────
+
+  &__logo-wrapper {
+    max-width:     $max-width;
+    margin-inline: auto;
+    width:         100%;
+    padding:       32px 20px 0;
+    display:       flex;
+    overflow:      hidden;
+
+    @include lg {
+      padding: 40px 32px 0;
+    }
   }
 
-  &__grid {
-    display: grid;
+  // ── Inner grid ──────────────────────────────────────────────────────────────
+
+  &__inner {
+    max-width:             $max-width;
+    margin-inline:         auto;
+    padding:               16px 20px 40px;
+    display:               grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    column-gap:            24px;
+    row-gap:               32px;
+    align-items:           start;
 
     @include md {
-      grid-template-columns: auto 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
 
-    @include xl {
-      grid-template-columns: auto 1fr 1fr 1fr 1fr;
+    @include lg {
+      grid-template-columns: minmax(0, 160px) 1fr auto auto auto;
+      column-gap:            32px;
+      padding:               16px 32px 48px;
     }
   }
 
-  &__logo {
-    display: flex;
-    align-items: flex-start;
-    padding-top: 4px;
-    min-width: 130px;
-  }
+  // ── Section ─────────────────────────────────────────────────────────────────
 
-  &__col-title {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #111827;
-  }
-
-  &__links-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 1.5rem;
-  }
-
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+  &__section {
+    display:        flex;
     flex-direction: column;
-    gap: 6px;
+    gap:            16px;
+  }
+
+  &__section-title {
+    font-family:  $font-figtree;
+    font-size:    16px;
+    font-weight:  700;
+    line-height:  1.3;
+    color:        $color-primary-black;
+    margin:       0;
+  }
+
+  // ── Motos grid ──────────────────────────────────────────────────────────────
+
+  &__motos-grid {
+    display:               grid;
+    grid-template-columns: 1fr;
+    column-gap:            40px;
+
+    // @include md {
+    //   grid-template-columns: 1fr 1fr;
+    // }
+  }
+
+  // ── Link list ───────────────────────────────────────────────────────────────
+
+  &__link-list {
+    list-style:     none;
+    margin:         0;
+    padding:        0;
+    display:        flex;
+    flex-direction: column;
+    gap:            6px;
   }
 
   &__link {
-    font-size: 0.875rem;
-    color: #374151;
+    font-size:       14px;
+    font-weight:     400;
+    line-height:     1.5;
+    color:           $color-dark-600;
     text-decoration: none;
-    transition: color 0.2s;
+    transition:      color 0.2s ease;
 
     &:hover {
-      color: $color-red;
+      color:           $color-primary-red;
       text-decoration: underline;
     }
   }
 
+  // ── Contact ─────────────────────────────────────────────────────────────────
+
   &__contact-item {
-    font-size: 0.875rem;
-    color: #374151;
+    font-size:   14px;
+    line-height: 1.5;
+    color:       $color-dark-600;
+  }
+
+  &__contact-city {
+    font-weight: 400;
   }
 
   &__contact-phone {
-    color: $color-red;
+    color:           $color-primary-red;
     text-decoration: none;
+    font-weight:     400;
+    transition:      color 0.2s ease;
 
     &:hover {
       text-decoration: underline;
+      color:           $color-secondary-700;
     }
   }
 
-  &__social-label {
-    font-size: 0.875rem;
+  // ── Newsletter ──────────────────────────────────────────────────────────────
+
+  &__newsletter-title {
+    font-size:   14px;
     font-weight: 600;
-    color: #111827;
-    margin-bottom: 0.75rem;
-  }
-
-  &__social-icons {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  &__newsletter {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  &__newsletter-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 0.75rem;
+    color:       $color-primary-black;
+    margin:      0;
   }
 
   &__newsletter-form {
     display: flex;
+    height:  40px;
   }
 
   &__newsletter-input {
-    flex: 1;
-    min-width: 0;
-    border: 1px solid #d1d5db;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
+    flex:         1;
+    min-width:    0;
+    border:       1px solid $color-dark-300;
+    border-right: none;
+    padding:      0 12px;
+    font-family:  $font-figtree;
+    font-size:    13px;
+    color:        $color-primary-black;
+    background:   $color-primary-white;
+    outline:      none;
+    transition:   border-color 0.2s ease;
 
-    &:focus {
-      outline: none;
-      border-color: $color-red;
-    }
+    &::placeholder { color: $color-dark-400; }
+    &:focus         { border-color: $color-dark-600; }
   }
 
   &__newsletter-btn {
-    background-color: $color-gray-dark;
-    color: $color-white;
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background-color 0.2s;
+    flex-shrink:  0;
+    padding:      0 16px;
+    background:   $color-primary-black;
+    color:        $color-primary-white;
+    font-family:  $font-figtree;
+    font-size:    13px;
+    font-weight:  600;
+    border:       none;
+    cursor:       pointer;
+    white-space:  nowrap;
+    transition:   background-color 0.2s ease;
 
-    &:hover {
-      background-color: $color-red;
-    }
+    &:hover { background-color: $color-primary-red; }
   }
+
+  // ── Checkbox ────────────────────────────────────────────────────────────────
 
   &__checkbox-label {
-    display: flex;
+    display:     flex;
     align-items: flex-start;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-    cursor: pointer;
-    font-size: 0.75rem;
-    color: #4b5563;
-    line-height: 1.4;
-
-    a {
-      text-decoration: underline;
-      color: #374151;
-
-      &:hover {
-        color: $color-red;
-      }
-    }
+    gap:         8px;
+    cursor:      pointer;
   }
+
+  &__checkbox {
+    margin-top:   3px;
+    flex-shrink:  0;
+    width:        14px;
+    height:       14px;
+    accent-color: $color-primary-red;
+    cursor:       pointer;
+  }
+
+  &__checkbox-text {
+    font-size:   11px;
+    line-height: 1.5;
+    color:       $color-dark-500;
+  }
+
+  &__checkbox-link {
+    color:           $color-primary-black;
+    text-decoration: underline;
+    transition:      color 0.2s ease;
+
+    &:hover { color: $color-primary-red; }
+  }
+
+  // ── Legal bar ───────────────────────────────────────────────────────────────
 
   &__legal {
-    border-top: 1px solid #e5e7eb;
-    background-color: #f9fafb;
-    padding: 0.75rem 1.5rem;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #6b7280;
+    border-top:  1px solid $color-dark-200;
+    background:  $color-light-300;
+    padding:     12px 20px;
+    text-align:  center;
 
-    a {
-      text-decoration: none;
-      transition: color 0.2s;
+    @include md { padding: 12px 32px; }
+  }
 
-      &:hover {
-        text-decoration: underline;
-        color: $color-red;
-      }
-    }
+  &__legal-text {
+    font-size:       12px;
+    color:           $color-dark-500;
+    margin:          0;
+    display:         flex;
+    flex-wrap:       wrap;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     center;
+    gap:             6px;
 
-    span {
-      margin: 0 4px;
+    @include md {
+      flex-direction: row;
+      gap:            4px;
     }
   }
 
+  &__separator {
+    margin-inline: 6px;
+    color:         $color-dark-400;
+    display:       none;
+
+    @include md { display: inline; }
+  }
+
+  &__legal-link {
+    color:           $color-dark-500;
+    text-decoration: none;
+    transition:      color 0.2s ease;
+
+    &:hover {
+      color:           $color-primary-red;
+      text-decoration: underline;
+    }
+  }
+
+  // ── Copyright bar ───────────────────────────────────────────────────────────
+
   &__copyright {
-    background-color: #111827;
-    padding: 0.75rem 1.5rem;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #9ca3af;
+    background:  $color-primary-black;
+    padding:     12px 20px;
+    text-align:  center;
+
+    p {
+      font-size:   12px;
+      color:       $color-light-200;
+      margin:      0;
+      font-family: $font-figtree;
+    }
+
+    @include md { padding: 12px 32px; }
   }
 }

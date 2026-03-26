@@ -6,4 +6,5 @@ export interface NavLink {
 export interface ContactItem {
   city: string;
   phone: string;
+  tel: string;
 }

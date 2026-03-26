@@ -1,0 +1,103 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// HERO CAMPAIGN — CSS Module
+// ============================================================
+
+.hero {
+  position:   relative;
+  width:      100%;
+  overflow:   hidden;
+  background: $color-primary-black;
+}
+
+// ── Background pattern ────────────────────────────────────────────────────────
+
+.background {
+  position:          absolute;
+  inset:             0;
+  // background-image:  url("/images/topo-pattern.svg");
+  background-repeat: repeat;
+  background-size:   400px;
+  opacity:           0.06;
+  pointer-events:    none;
+}
+
+// ── Inner two-column layout ───────────────────────────────────────────────────
+
+.inner {
+  position:       relative;
+  z-index:        1;
+  max-width:      $max-width;
+  margin-inline:  auto;
+  padding:        48px 20px;
+  display:        flex;
+  flex-direction: column;
+  gap:            40px;
+
+  @include md {
+    padding:        64px 32px;
+    flex-direction: row;
+    align-items:    center;
+    gap:            48px;
+  }
+
+  @include lg {
+    padding: 80px 32px;
+    gap:     64px;
+  }
+}
+
+// ── Text content (left) ───────────────────────────────────────────────────────
+
+.content {
+  flex:      1;
+  max-width: 560px;
+}
+
+.title {
+  font-family:  $font-figtree;
+  font-size:    28px;
+  font-weight:  700;
+  line-height:  1.2;
+  color:        $color-primary-white;
+  margin:       0 0 16px;
+
+  @include md { font-size: 36px; }
+  @include lg { font-size: 48px; }
+}
+
+.description {
+  font-family: $font-figtree;
+  font-size:   16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color:       $color-light-400;
+  margin:      0;
+
+  @include md { font-size: 18px; }
+}
+
+// ── Image (right) ─────────────────────────────────────────────────────────────
+
+.imageWrapper {
+  position:    relative;
+  flex-shrink: 0;
+  width:       100%;
+  height:      260px;
+
+  @include md {
+    width:  45%;
+    height: 380px;
+  }
+
+  @include lg {
+    height: 460px;
+  }
+}
+
+.image {
+  object-fit:      contain;
+  object-position: bottom center;
+}
