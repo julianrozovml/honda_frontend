@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "@/components/ui/Button/button";
+import Button from "@/components/ui/(buttons)/Button/button";
 
 export default function Home() {
   return (

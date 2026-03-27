@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import Button from "@/components/ui/Button/button";
+import Button from "@/components/ui/(buttons)/Button/button";
+import InputSearch from "@/components/ui/(forms)/InputSearch/input-search";
 import type {
   VinSearchSectionProps,
   VinResultsProps,
@@ -13,22 +14,6 @@ import type {
 import styles from "./VinSearchSection.module.scss";
 
 // ── SVG Icons ─────────────────────────────────────────────────────────────────
-
-const SearchIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    className={styles.searchIcon}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <circle cx="11" cy="11" r="8" />
-    <path d="M21 21l-4.35-4.35" />
-  </svg>
-);
 
 const InfoIcon = () => (
   <svg
@@ -147,7 +132,7 @@ function VinResults({ vin, campaigns, status }: VinResultsProps) {
 
 export function VinSearchSection({
   label = "Número de VIN",
-  placeholder = "1X9ABCDEFG3H456789",
+  placeholder = "Ingresa el VIN de motocicleta...",
   buttonLabel = "Comprobar campaña(s)",
   tooltipImage,
   image,
@@ -205,23 +190,13 @@ export function VinSearchSection({
 
           {/* Input + button row */}
           <div className={styles.inputRow}>
-            <div className={styles.inputWrapper}>
-              <input
-                id="vin-input"
-                type="text"
-                value={vin}
-                onChange={(e) => setVin(e.target.value.toUpperCase())}
-                placeholder={placeholder}
-                className={styles.input}
-                maxLength={17}
-                autoComplete="off"
-                spellCheck={false}
-                aria-label={label}
-              />
-              <span className={styles.inputIconRight} aria-hidden="true">
-                <SearchIcon />
-              </span>
-            </div>
+            <InputSearch
+              value={vin}
+              onChange={(val) => setVin(val.toUpperCase())}
+              onClear={() => setVin("")}
+              placeholder={placeholder}
+              className={styles.inputWrapper}
+            />
 
             <Button
               type="submit"

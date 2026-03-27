@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoHondaRed from "@/components/ui/LogoHondaRed/logo-honda-red";
+import LogoHondaRed from "@/components/ui/(honda)/LogoHondaRed/logo-honda-red";
 import "./header.scss";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -63,7 +63,6 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__inner">
-
         {/* Logo */}
         <Link href="/" className="header__logo" aria-label="Ir al inicio">
           <LogoHondaRed width={178} />
@@ -77,7 +76,11 @@ export default function Header() {
               placeholder="Busca productos, accesorios, repuestos, VIN"
               className="header__search-input"
             />
-            <button type="submit" aria-label="Buscar" className="header__search-btn">
+            <button
+              type="submit"
+              aria-label="Buscar"
+              className="header__search-btn"
+            >
               <SearchIcon />
             </button>
           </div>
@@ -85,7 +88,6 @@ export default function Header() {
 
         {/* Actions */}
         <div className="header__actions">
-
           {/* VIN */}
           <button type="button" className="header__action-btn">
             <span className="header__vin-badge">VIN</span>
@@ -112,7 +114,6 @@ export default function Header() {
             </div>
             <span className="header__action-label">Ver carrito</span>
           </Link>
-
         </div>
       </div>
     </header>

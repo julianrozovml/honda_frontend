@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/ui/Breadcrumb/breadcrumb";
-import TitleOutlineLeft from "@/components/ui/TitleOutlineLeft/title-outline-left";
+import Breadcrumb from "@/components/ui/(navigation)/Breadcrumb/breadcrumb";
+import TitleOutlineLeft from "@/components/ui/(global)/TitleOutlineLeft/title-outline-left";
 import { HeroCampaign } from "@/components/drupal-components/HeroCampaign/hero-campaign";
 import { CampaignStepsSection } from "@/components/drupal-components/CampaignStepsSection/campaign-steps-section";
 import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
+import Video from "@/components/ui/(media)/Video/video";
+import Container from "@/components/ui/(layout)/Container/container";
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",
@@ -77,6 +79,20 @@ export default function CampaniasDeSeguridad() {
           alt: "Técnico Honda revisando una motocicleta",
         }}
       />
+      <Container>
+        <Video
+          provider="youtube"
+          id="dQw4w9WgXcQ"
+          title="Campañas de seguridad Honda Motos Colombia"
+          controls={false}
+        />
+        <Video
+          provider="vimeo"
+          id="76979871"
+          title="Campañas de seguridad Honda Motos Colombia"
+          controls={false}
+        />
+      </Container>
     </main>
   );
 }

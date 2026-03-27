@@ -77,45 +77,9 @@
 }
 
 .inputWrapper {
-  position:  relative;
-  width:     100%;
-  max-width: 100%;
+  width: 100%;
 
   @include sm { width: 320px; }
-}
-
-.input {
-  width:         100%;
-  height:        40px;
-  padding:       0 40px 0 14px;
-  border:        1px solid $color-dark-300;
-  background:    $color-primary-white;
-  font-family:   $font-figtree;
-  font-size:     14px;
-  font-weight:   400;
-  color:         $color-primary-black;
-  outline:       none;
-  border-radius: 0;
-  transition:    border-color 0.2s ease;
-
-  &::placeholder { color: $color-dark-400; }
-  &:focus { border-color: $color-dark-600; }
-}
-
-.inputIconRight {
-  position:       absolute;
-  right:          12px;
-  top:            50%;
-  transform:      translateY(-50%);
-  color:          $color-primary-red;
-  display:        flex;
-  align-items:    center;
-  pointer-events: none;
-}
-
-.searchIcon {
-  width:  16px;
-  height: 16px;
 }
 
 // ── Submit button ─────────────────────────────────────────────────────────────
