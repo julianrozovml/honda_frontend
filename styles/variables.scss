@@ -127,6 +127,15 @@ $colors-secondary: (
 $font-figtree: var(--font-figtree), sans-serif;
 $font-manrope: var(--font-manrope), sans-serif;
 
+// Font weights
+$fw-light:      300;
+$fw-regular:    400;
+$fw-medium:     500;
+$fw-semibold:   600;
+$fw-bold:       700;
+$fw-extrabold:  800;
+$fw-black:      900;
+
 // ── Breakpoints ──────────────────────────────────────────────────────────────
 $bp-xs:  320px;
 $bp-s:   375px;
