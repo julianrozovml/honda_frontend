@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoHondaRed from "@/components/ui/(honda)/LogoHondaRed/logo-honda-red";
+import LogoHondaRed from "@/components/ui/Honda/LogoHondaRed/logo-honda-red";
 import "./header.scss";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import Breadcrumb from "@/components/ui/(navigation)/Breadcrumb/breadcrumb";
-import TitleOutlineLeft from "@/components/ui/(global)/TitleOutlineLeft/title-outline-left";
+import Breadcrumb from "@/components/ui/Navigation/Breadcrumb/breadcrumb";
+import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import { HeroCampaign } from "@/components/drupal-components/HeroCampaign/hero-campaign";
 import { CampaignStepsSection } from "@/components/drupal-components/CampaignStepsSection/campaign-steps-section";
 import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
-import Video from "@/components/ui/(media)/Video/video";
-import Container from "@/components/ui/(layout)/Container/container";
+import Video from "@/components/ui/Media/Video/video";
+import Container from "@/components/ui/Layout/Container/container";
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",

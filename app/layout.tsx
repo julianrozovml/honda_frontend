@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree, Manrope } from "next/font/google";
-import Header from "@/components/layouts/(global)/Header/header";
-import Footer from "@/components/layouts/(global)/Footer/footer";
+import Header from "@/components/layouts/Global/Header/header";
+import Footer from "@/components/layouts/Global/Footer/footer";
 import "./globals.css";
 import "@/styles/globals.scss";
 
