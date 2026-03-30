@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import Button from "@/components/ui/(buttons)/Button/button";
-import InputSearch from "@/components/ui/(forms)/InputSearch/input-search";
+import Button from "@/components/ui/Buttons/Button/button";
+import InputSearch from "@/components/ui/Forms/InputSearch/input-search";
 import type {
   VinSearchSectionProps,
   VinResultsProps,

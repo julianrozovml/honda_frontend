@@ -1,7 +1,7 @@
 "use client";
 
 import type { InputSearchProps } from "./input-search.types";
-import Button from "@/components/ui/(buttons)/Button/button";
+import Button from "@/components/ui/Buttons/Button/button";
 import styles from "./InputSearch.module.scss";
 
 export default function InputSearch({

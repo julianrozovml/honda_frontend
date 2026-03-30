@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoHondaDark from "@/components/ui/(honda)/LogoHondaDark/logo-honda-dark";
+import LogoHondaDark from "@/components/ui/Honda/LogoHondaDark/logo-honda-dark";
 import "./footer.scss";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
