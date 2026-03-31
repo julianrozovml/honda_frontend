@@ -12,15 +12,15 @@
   align-items:   center;
   flex-wrap:     wrap;
   gap:           4px;
-  padding:       12px 20px;
+  padding:       12px 0;
   background:    $color-primary-white;
   border-top: 1px solid $color-light-200;
   border-bottom: 1px solid $color-light-200;
 
   @include lg {
     max-width:     $max-width;
-    margin:        50px auto;
-    padding: 12px 32px;
+    margin:        50px auto 35px;
+    padding: 12px 0;
   }
 }
 

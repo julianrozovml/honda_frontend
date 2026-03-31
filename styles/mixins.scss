@@ -29,15 +29,10 @@
   @media (min-width: #{$bp-xl}) { @content; }
 }
 
-// ── Flex ─────────────────────────────────────────────────────────────────────
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+// ── Pseudo-elements ──────────────────────────────────────────────────────────
+@mixin pseudo($position: absolute, $content: "") {
+  content:  $content;
+  display:  block;
+  position: $position;
+  @content;
 }

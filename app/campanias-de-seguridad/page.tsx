@@ -30,7 +30,12 @@ export default function CampaniasDeSeguridad() {
           { label: "Campañas de seguridad" },
         ]}
       />
-      <TitleOutlineLeft label="¿Quieres buscar campañas disponibles?" as="h1" />
+      <Container>
+        <TitleOutlineLeft
+          label="¿Quieres buscar campañas disponibles?"
+          as="h1"
+        />
+      </Container>
       <VinSearchSection
         onSearch={searchCampaignsByVin}
         tooltipImage={{
