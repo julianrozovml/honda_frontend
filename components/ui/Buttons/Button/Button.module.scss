@@ -59,6 +59,7 @@
   color:            $color-primary-black;
   border:           1px solid $color-primary-black;
   border-radius:    0 8px 8px 0;
+  height: 42px;
 
   &:hover {
     border-color: $color-primary-red;
@@ -83,7 +84,7 @@
 }
 
 .md {
-  height:  48px;
+  height:  42px;
   padding: 12px 24px;
   font-size: 16px;
 }

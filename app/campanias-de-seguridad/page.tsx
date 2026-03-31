@@ -81,16 +81,9 @@ export default function CampaniasDeSeguridad() {
       />
       <Container>
         <Video
-          provider="youtube"
-          id="dQw4w9WgXcQ"
-          title="Campañas de seguridad Honda Motos Colombia"
-          controls={false}
-        />
-        <Video
           provider="vimeo"
           id="76979871"
           title="Campañas de seguridad Honda Motos Colombia"
-          controls={false}
         />
       </Container>
     </main>
