@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LogoHondaDark from "@/components/ui/Honda/LogoHondaDark/logo-honda-dark";
 import Newsletter from "@/components/ui/Forms/Newsletter/newsletter";
+import SocialLinks from "@/components/ui/Global/SocialLinks/social-links";
 import type { NavLink, ContactItem } from "./footer.types";
 import "./footer.scss";
 
@@ -111,6 +112,7 @@ export default function Footer() {
 
         {/* Newsletter */}
         <div className="footer__section">
+          <SocialLinks />
           <Newsletter />
         </div>
       </div>
