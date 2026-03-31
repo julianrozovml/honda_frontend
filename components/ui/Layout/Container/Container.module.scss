@@ -11,5 +11,5 @@
   margin:    0 auto;
   padding:   0 16px;
 
-  @include md { padding: 0; }
+  @include md { padding: 0 12px; }
 }
