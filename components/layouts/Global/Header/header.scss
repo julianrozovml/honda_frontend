@@ -26,8 +26,7 @@
     margin-inline: auto;
     padding:       0 20px;
 
-    @include md { padding: 0 24px; }
-    @include xl { padding: 0 32px; }
+    @include md { padding: 0; }
   }
 
   // ── Logo ───────────────────────────────────────────────────────────────────
