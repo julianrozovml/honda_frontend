@@ -46,7 +46,19 @@
 .outline {
   background-color: transparent;
   color:            $color-primary-black;
-  border:           1px solid $color-dark-300;
+  border:           1px solid $color-primary-black;
+
+  &:hover {
+    border-color: $color-primary-red;
+    color:        $color-primary-red;
+  }
+}
+
+.outline-border-right {
+  background-color: transparent;
+  color:            $color-primary-black;
+  border:           1px solid $color-primary-black;
+  border-radius:    0 8px 8px 0;
 
   &:hover {
     border-color: $color-primary-red;

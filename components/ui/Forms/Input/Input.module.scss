@@ -27,13 +27,13 @@
   font-size:     16px;
   color:         $color-primary-black;
   background:    $color-primary-white;
-  border:        1px solid $color-dark-300;
+  border:        1px solid $color-light-300;
   border-radius: 8px;
   outline:       none;
   transition:    border-color 0.2s ease;
 
   &::placeholder {
-    color: $color-dark-300;
+    color: $color-dark-100;
   }
 
   &:focus {
