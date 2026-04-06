@@ -1,4 +1,4 @@
-# Video
+# VideoGeneral
 
 Componente cliente para incrustar videos de **YouTube** y **Vimeo** mediante `<iframe>`. Soporta controles nativos del reproductor o un botón de play/pause personalizado cuando los controles están desactivados.
 
@@ -32,16 +32,16 @@ Video/
 ## Uso básico
 
 ```tsx
-import Video from "@/components/ui/Media/Video/video";
+import VideoGeneral from "@/components/ui/Media/Video/video";
 
 // YouTube con controles nativos
-<Video provider="youtube" id="dQw4w9WgXcQ" title="Mi video de YouTube" />
+<VideoGeneral provider="youtube" id="dQw4w9WgXcQ" title="Mi video de YouTube" />
 
 // Vimeo sin controles nativos (botón custom de play/pause)
-<Video provider="vimeo" id="76979871" title="Mi video de Vimeo" controls={false} />
+<VideoGeneral provider="vimeo" id="76979871" title="Mi video de Vimeo" controls={false} />
 
 // Con relación de aspecto 4:3
-<Video provider="youtube" id="dQw4w9WgXcQ" aspectRatio="4/3" />
+<VideoGeneral provider="youtube" id="dQw4w9WgXcQ" aspectRatio="4/3" />
 ```
 
 ---

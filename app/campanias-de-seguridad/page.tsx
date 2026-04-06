@@ -5,7 +5,7 @@ import { HeroCampaign } from "@/components/drupal-components/HeroCampaign/hero-c
 import { CampaignStepsSection } from "@/components/drupal-components/CampaignStepsSection/campaign-steps-section";
 import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
-import Video from "@/components/ui/Media/Video/video";
+import VideoGeneral from "@/components/ui/Media/Video/video";
 import Container from "@/components/ui/Layout/Container/container";
 
 export const metadata: Metadata = {
@@ -85,7 +85,7 @@ export default function CampaniasDeSeguridad() {
         }}
       />
       <Container>
-        <Video
+        <VideoGeneral
           provider="vimeo"
           id="76979871"
           title="Campañas de seguridad Honda Motos Colombia"

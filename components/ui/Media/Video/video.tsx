@@ -39,7 +39,7 @@ function PauseIcon() {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function Video({
+export default function VideoGeneral({
   id,
   provider,
   title = "Video",
