@@ -9,7 +9,7 @@ import Link from "next/link";
 import type { SliderGeneralProps } from "./slider-general.types";
 import styles from "./SliderGeneral.module.scss";
 
-import "swiper/css";
+// swiper/css se importa globalmente en app/layout.tsx
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 
