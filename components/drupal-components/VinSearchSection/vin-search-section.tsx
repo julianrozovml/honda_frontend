@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Buttons/Button/button";
 import InputSearch from "@/components/ui/Forms/InputSearch/input-search";
+import CardProductCampaign from "@/components/ui/Cards/CardProductCampaign/card-product-campaign";
 import type {
   VinSearchSectionProps,
   VinResultsProps,
@@ -112,14 +113,22 @@ function VinResults({ vin, campaigns, status }: VinResultsProps) {
           <span>En este momento no tienes campañas abiertas.</span>
         </div>
       ) : (
-        <ul className={styles.campaignList}>
+        <ul className={styles.cardGrid}>
           {campaigns.map((campaign) => (
-            <li key={campaign.id} className={styles.campaignItem}>
-              <strong className={styles.campaignTitle}>{campaign.title}</strong>
-              <p className={styles.campaignDescription}>
-                {campaign.description}
-              </p>
-              <span className={styles.campaignStatus}>{campaign.status}</span>
+            <li key={campaign.id}>
+              <CardProductCampaign
+                date={campaign.date}
+                title={campaign.title}
+                imageSrc={campaign.imageSrc}
+                imageAlt={campaign.imageAlt}
+                productName={campaign.productName}
+                models={campaign.models}
+                onShare={() => {
+                  if (typeof navigator !== "undefined" && navigator.share) {
+                    navigator.share({ title: campaign.title, url: window.location.href });
+                  }
+                }}
+              />
             </li>
           ))}
         </ul>

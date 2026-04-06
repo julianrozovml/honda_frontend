@@ -17,7 +17,19 @@ export const metadata: Metadata = {
 async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
   "use server";
   // TODO: conectar con API de Drupal
-  console.log("Buscando campañas para VIN:", vin);
+  if (vin === "1X9ABCDEFG3H456789") {
+    return [
+      {
+        id: "campaign-anti-wheelie-africa-twin",
+        title: "Actualización software control Anti-Wheelie",
+        date: "22 enero 2025",
+        imageSrc: "/images/image-moto.png",
+        imageAlt: "Honda Africa Twin CRF 1100",
+        productName: "Afrika Twin CRF 1100",
+        models: ["2020", "2021", "2022", "2023", "2024"],
+      },
+    ];
+  }
   return [];
 }
 

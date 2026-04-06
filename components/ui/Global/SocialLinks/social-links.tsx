@@ -1,6 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
-import type { SocialLinksProps, SocialLink } from "./social-links.types";
+import type {
+  SocialLinksProps,
+  SocialLink,
+  SocialNetwork,
+} from "./social-links.types";
+import IconFacebook from "@/components/ui/Icons/Social/IconFacebook/IconFacebook";
+import IconInstagram from "@/components/ui/Icons/Social/IconInstagram/IconInstagram";
+import IconX from "@/components/ui/Icons/Social/IconX/IconX";
+import IconYoutube from "@/components/ui/Icons/Social/IconYoutube/IconYoutube";
 import styles from "./SocialLinks.module.scss";
 
 const defaultLinks: SocialLink[] = [
@@ -10,11 +17,11 @@ const defaultLinks: SocialLink[] = [
   { network: "youtube", href: "#", label: "Youtube" },
 ];
 
-const iconSrc: Record<string, string> = {
-  facebook: "/icons/icon-fb.svg",
-  instagram: "/icons/icon-in.svg",
-  x: "/icons/icon-x.svg",
-  youtube: "/icons/icon-yt.svg",
+const iconMap: Record<SocialNetwork, React.ReactNode> = {
+  facebook: <IconFacebook size={22} />,
+  instagram: <IconInstagram size={22} />,
+  x: <IconX size={22} />,
+  youtube: <IconYoutube size={22} />,
 };
 
 export default function SocialLinks({
@@ -35,13 +42,7 @@ export default function SocialLinks({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                src={iconSrc[network]}
-                alt={label}
-                width={22}
-                height={22}
-                className={styles.icon}
-              />
+              {iconMap[network]}
             </Link>
           </li>
         ))}

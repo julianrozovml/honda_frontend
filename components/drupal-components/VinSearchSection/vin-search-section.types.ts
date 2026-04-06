@@ -6,9 +6,18 @@ export type SearchStatus = "idle" | "loading" | "success" | "error";
 
 export interface Campaign {
   id: string;
+  /** Título de la campaña */
   title: string;
-  description: string;
-  status: string;
+  /** Fecha de publicación, ej: "22 enero 2025" */
+  date: string;
+  /** URL de la imagen del producto */
+  imageSrc: string;
+  /** Texto alternativo de la imagen */
+  imageAlt: string;
+  /** Nombre del producto, ej: "Afrika Twin CRF 1100" */
+  productName: string;
+  /** Años de modelos afectados */
+  models: string[];
 }
 
 export interface VinTooltipImage {
