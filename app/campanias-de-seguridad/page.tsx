@@ -8,6 +8,7 @@ import type { Campaign } from "@/components/drupal-components/VinSearchSection/v
 import VideoGeneral from "@/components/ui/Media/Video/video";
 import Container from "@/components/ui/Layout/Container/container";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
+import { getIsMobile } from "@/lib/device";
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",
@@ -34,7 +35,8 @@ async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
   return [];
 }
 
-export default function CampaniasDeSeguridad() {
+export default async function CampaniasDeSeguridad() {
+  const isMobile = await getIsMobile();
   return (
     <main className="campanias">
       <Breadcrumb
@@ -105,17 +107,21 @@ export default function CampaniasDeSeguridad() {
         />
       </Container>
       <SliderGeneral
+        isMobile={isMobile}
         slides={[
           {
             imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
             imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 1",
           },
           {
             imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
             imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
           },
           {
             imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
             imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 3",
           },
         ]}

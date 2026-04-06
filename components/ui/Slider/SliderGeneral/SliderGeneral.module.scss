@@ -6,6 +6,7 @@
 // ============================================================
 
 .wrapper {
+  margin: 35px 0 70px;
   width: 100%;
 }
 
@@ -14,14 +15,21 @@
 .slide {
   position:     relative;
   width:        100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3;     // mobile: imagen cuadrada/vertical
 
-  @include sm  { aspect-ratio: 16 / 9; }
-  @include lg  { aspect-ratio: 16 / 5; }
+  @include sm  { aspect-ratio: 16 / 8; }  // tablet pequeña
+  @include md  { aspect-ratio: 16 / 6; }  // tablet
+  @include lg  { aspect-ratio: 16 / 5; }  // desktop: banner panorámico
+}
+
+.picture {
+  position: absolute;
+  inset:    0;
 }
 
 .image {
-  object-fit: contain;
+  object-fit: cover;
+  @include sm { object-fit: contain; }
 }
 
 // ── Controls (fila: prev · dots · next) ──────────────────────
@@ -32,6 +40,7 @@
   justify-content: center;
   gap:             16px;
   padding:         16px 0;
+  @include sm { gap: 30px; }
 }
 
 // ── Prev / Next ───────────────────────────────────────────────
@@ -65,16 +74,17 @@
 .dots {
   display:     flex;
   align-items: center;
-  gap:         8px;
+  gap:         10px;
 }
 
 .dot {
-  width:         10px;
-  height:        10px;
+  width:         16px;
+  height:        16px;
   border-radius: 50%;
   background:    transparent;
-  border:        1.5px solid $color-dark-400;
+  border:        1.5px solid $color-light-400;
   padding:       0;
+  position: relative;
   cursor:        pointer;
   transition:    background 0.2s ease, border-color 0.2s ease;
 
@@ -85,6 +95,14 @@
 }
 
 .dotActive {
-  background:   $color-dark-900;
-  border-color: $color-dark-900;
+  &::after {
+      @include pseudo {
+      width:         8px;
+      height:        8px;
+      inset: 0;
+      margin: auto;
+      border-radius: 50%;
+      background:    $color-primary-black;
+    }
+  }
 }

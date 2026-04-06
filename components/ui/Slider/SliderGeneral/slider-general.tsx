@@ -15,7 +15,17 @@ import "swiper/css";
 
 function ChevronLeftIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      width="34"
+      height="34"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <polyline points="15 18 9 12 15 6" />
     </svg>
   );
@@ -23,7 +33,17 @@ function ChevronLeftIcon() {
 
 function ChevronRightIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      width="34"
+      height="34"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <polyline points="9 18 15 12 9 6" />
     </svg>
   );
@@ -33,6 +53,7 @@ function ChevronRightIcon() {
 
 export default function SliderGeneral({
   slides,
+  isMobile = false,
   autoplay = false,
   autoplayDelay = 4000,
 }: SliderGeneralProps) {
@@ -47,14 +68,23 @@ export default function SliderGeneral({
         onSwiper={setSwiper}
         onSlideChange={(s) => setActiveIndex(s.realIndex)}
         modules={autoplay ? [Autoplay] : []}
-        autoplay={autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false}
+        autoplay={
+          autoplay
+            ? { delay: autoplayDelay, disableOnInteraction: false }
+            : false
+        }
         loop={hasMultiple}
       >
         {slides.map((slide, i) => {
+          const src =
+            isMobile && slide.imageSrcMobile
+              ? slide.imageSrcMobile
+              : slide.imageSrc;
+
           const content = (
             <div className={styles.slide}>
               <Image
-                src={slide.imageSrc}
+                src={src}
                 alt={slide.imageAlt}
                 fill
                 className={styles.image}
@@ -97,7 +127,12 @@ export default function SliderGeneral({
                 role="tab"
                 aria-selected={i === activeIndex}
                 aria-label={`Ir al slide ${i + 1}`}
-                className={[styles.dot, i === activeIndex ? styles.dotActive : ""].filter(Boolean).join(" ")}
+                className={[
+                  styles.dot,
+                  i === activeIndex ? styles.dotActive : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
                 onClick={() => swiper?.slideToLoop(i)}
               />
             ))}
