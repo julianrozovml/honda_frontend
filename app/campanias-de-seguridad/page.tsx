@@ -7,6 +7,7 @@ import { VinSearchSection } from "@/components/drupal-components/VinSearchSectio
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
 import VideoGeneral from "@/components/ui/Media/Video/video";
 import Container from "@/components/ui/Layout/Container/container";
+import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",
@@ -103,6 +104,22 @@ export default function CampaniasDeSeguridad() {
           title="Campañas de seguridad Honda Motos Colombia"
         />
       </Container>
+      <SliderGeneral
+        slides={[
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 1",
+          },
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
+          },
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 3",
+          },
+        ]}
+      />
     </main>
   );
 }
