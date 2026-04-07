@@ -204,6 +204,14 @@
   to { transform: rotate(360deg); }
 }
 
+// ── Assign action ─────────────────────────────────────────────────────────────
+
+.assignAction {
+  display:         flex;
+  justify-content: center;
+  margin-top:      32px;
+}
+
 // ── Card grid ─────────────────────────────────────────────────────────────────
 
 .cardGrid {
