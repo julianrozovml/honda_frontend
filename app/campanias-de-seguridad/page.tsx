@@ -76,24 +76,19 @@ export default async function CampaniasDeSeguridad() {
           {
             id: 1,
             description:
-              "Ingresa el número VIN de tu moto para verificar si aplica a una campaña activa.",
+                "Verifica si tu moto está incluida en la campaña de seguridad. Esto se puede hacer ingresando tu número VIN en el campo de arriba o consultando con tu concesionario Honda más cercano.",
+                link: {
+              label: "campo de arriba",
+              href: "#vin",
+            },
           },
           {
             id: 2,
             description:
-              "Contacta al concesionario Honda más cercano para programar tu revisión.",
-            link: {
-              label: "concesionario Honda más cercano",
-              href: "/concesionarios",
-            },
-          },
-          {
-            id: 3,
-            description:
-              "Lleva tu moto al taller. El ajuste o reemplazo de piezas es completamente gratuito.",
+              "Cuando te contacten, acércate a tu concesionario autorizado para realizar, sin ningún costo, el reemplazo del repuesto.",
           },
         ]}
-        closingText={"¡Y listo!\nAsí de fácil."}
+        closingText={isMobile ? "¡Y listo! Así de fácil." : "¡Y listo!\nAsí de fácil."}
         image={{
           src: "/images/campaign-steps.png",
           alt: "Técnico Honda revisando una motocicleta",
