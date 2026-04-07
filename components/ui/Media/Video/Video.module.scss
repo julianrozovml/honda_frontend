@@ -6,9 +6,11 @@
 // ============================================================
 
 .wrapper {
-  position: relative;
-  width:    100%;
-  overflow: hidden;
+  position:     relative;
+  margin: 50px 0;
+  width:        100%;
+  overflow:     hidden;
+  border-radius: 24px;
 
   &::before {
     content: "";

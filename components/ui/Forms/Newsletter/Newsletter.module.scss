@@ -1,0 +1,64 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: $font-figtree;
+  font-size: 16px;
+  font-weight: $fw-extrabold;
+  color: $color-dark-500;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+
+  @include sm {
+    align-items: flex-start;
+  }
+}
+
+.inputWrapper {
+  input {
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+  }
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox {
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  accent-color: $color-primary-red;
+  cursor: pointer;
+}
+
+.checkboxText {
+  font-size: 14px;
+  line-height: 1.5;
+  color: $color-dark-500;
+}
+
+.checkboxLink {
+  color: $color-primary-black;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-primary-red;
+  }
+}

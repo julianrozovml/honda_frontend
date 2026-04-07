@@ -18,10 +18,10 @@ $color-primary-white: #ffffff;
 $color-dark-100:  #c0c0bf;
 $color-dark-200:  #a2a2a0;
 $color-dark-300:  #878784;
-$color-dark-400:  #6b6b6c;
+$color-dark-400:  #6e6e6c;
 $color-dark-500:  #595957;
 $color-dark-600:  #484846;
-$color-dark-700:  #363b3a;
+$color-dark-700:  #3b3b3a;
 $color-dark-800:  #343433;
 $color-dark-900:  #313130;
 $color-dark-1000: #171717;
@@ -55,14 +55,14 @@ $color-light-50:  rgba(255, 255, 255, 0.50);
 // ------------------------------------------------------------
 // SECUNDARIO (rojos) — Sólidos
 // ------------------------------------------------------------
-$color-secondary-100:  #f0bbbb;
-$color-secondary-200:  #f17a7a;
-$color-secondary-300:  #f04040;
+$color-secondary-100:  #ffbbbb;
+$color-secondary-200:  #ff7a7a;
+$color-secondary-300:  #ff4040;
 $color-secondary-400:  #ff1010;
-$color-secondary-500:  #ee0000;
+$color-secondary-500:  #ea0000;
 $color-secondary-600:  #d40000;
-$color-secondary-700:  #bc0000;
-$color-secondary-800:  #850000;
+$color-secondary-700:  #cc0000;
+$color-secondary-800:  #950000;
 $color-secondary-900:  #630000;
 $color-secondary-1000: #3c0000;
 
@@ -126,6 +126,15 @@ $colors-secondary: (
 // ── Typography ───────────────────────────────────────────────────────────────
 $font-figtree: var(--font-figtree), sans-serif;
 $font-manrope: var(--font-manrope), sans-serif;
+
+// Font weights
+$fw-light:      300;
+$fw-regular:    400;
+$fw-medium:     500;
+$fw-semibold:   600;
+$fw-bold:       700;
+$fw-extrabold:  800;
+$fw-black:      900;
 
 // ── Breakpoints ──────────────────────────────────────────────────────────────
 $bp-xs:  320px;

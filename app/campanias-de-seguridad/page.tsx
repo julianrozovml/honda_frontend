@@ -5,8 +5,10 @@ import { HeroCampaign } from "@/components/drupal-components/HeroCampaign/hero-c
 import { CampaignStepsSection } from "@/components/drupal-components/CampaignStepsSection/campaign-steps-section";
 import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
-import Video from "@/components/ui/Media/Video/video";
+import VideoGeneral from "@/components/ui/Media/Video/video";
 import Container from "@/components/ui/Layout/Container/container";
+import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
+import { getIsMobile } from "@/lib/device";
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",
@@ -17,11 +19,24 @@ export const metadata: Metadata = {
 async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
   "use server";
   // TODO: conectar con API de Drupal
-  console.log("Buscando campañas para VIN:", vin);
+  if (vin === "1X9ABCDEFG3H456789") {
+    return [
+      {
+        id: "campaign-anti-wheelie-africa-twin",
+        title: "Actualización software control Anti-Wheelie",
+        date: "22 enero 2025",
+        imageSrc: "/images/image-moto.png",
+        imageAlt: "Honda Africa Twin CRF 1100",
+        productName: "Afrika Twin CRF 1100",
+        models: ["2020", "2021", "2022", "2023", "2024"],
+      },
+    ];
+  }
   return [];
 }
 
-export default function CampaniasDeSeguridad() {
+export default async function CampaniasDeSeguridad() {
+  const isMobile = await getIsMobile();
   return (
     <main className="campanias">
       <Breadcrumb
@@ -30,7 +45,12 @@ export default function CampaniasDeSeguridad() {
           { label: "Campañas de seguridad" },
         ]}
       />
-      <TitleOutlineLeft label="¿Quieres buscar campañas disponibles?" as="h1" />
+      <Container>
+        <TitleOutlineLeft
+          label="¿Quieres buscar campañas disponibles?"
+          as="h1"
+        />
+      </Container>
       <VinSearchSection
         onSearch={searchCampaignsByVin}
         tooltipImage={{
@@ -80,19 +100,32 @@ export default function CampaniasDeSeguridad() {
         }}
       />
       <Container>
-        <Video
-          provider="youtube"
-          id="dQw4w9WgXcQ"
-          title="Campañas de seguridad Honda Motos Colombia"
-          controls={false}
-        />
-        <Video
+        <VideoGeneral
           provider="vimeo"
           id="76979871"
           title="Campañas de seguridad Honda Motos Colombia"
-          controls={false}
         />
       </Container>
+      <SliderGeneral
+        isMobile={isMobile}
+        slides={[
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 1",
+          },
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
+          },
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 3",
+          },
+        ]}
+      />
     </main>
   );
 }

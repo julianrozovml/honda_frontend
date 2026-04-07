@@ -6,16 +6,21 @@
 // ============================================================
 
 .nav {
+  max-width:     95%;
+  margin:        30px auto;
   display:       flex;
   align-items:   center;
   flex-wrap:     wrap;
   gap:           4px;
-  padding:       12px 20px;
+  padding:       12px 6px;
   background:    $color-primary-white;
-  border-bottom: 1px solid $color-dark-10;
+  border-top: 1px solid $color-light-200;
+  border-bottom: 1px solid $color-light-200;
 
   @include lg {
-    padding: 12px 32px;
+    max-width:     $max-width;
+    width: 98%;
+    margin:        50px auto 35px;
   }
 }
 
@@ -33,8 +38,8 @@
 .link {
   font-family:     $font-figtree;
   font-size:       14px;
-  font-weight:     400;
-  color:           $color-dark-500;
+  font-weight:    $fw-bold;
+  color:           $color-primary-red;
   text-decoration: none;
   transition:      color 0.2s ease;
 
@@ -49,15 +54,15 @@
 .current {
   font-family:  $font-figtree;
   font-size:    14px;
-  font-weight:  500;
-  color:        $color-primary-black;
+  font-weight:  $fw-medium;
+  color:        $color-dark-400;
 
   @include lg { font-size: 16px; }
 }
 
 .separator {
   font-size:   14px;
-  color:       $color-dark-300;
+  color:       $color-dark-900;
   user-select: none;
 
   @include lg { font-size: 16px; }

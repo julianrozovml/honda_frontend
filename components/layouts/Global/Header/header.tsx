@@ -1,21 +1,9 @@
 import Link from "next/link";
 import LogoHondaRed from "@/components/ui/Honda/LogoHondaRed/logo-honda-red";
+import HeaderSearch from "./header-search";
 import "./header.scss";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
-
-const SearchIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    className="header__icon"
-    strokeWidth={2.2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="11" cy="11" r="8" />
-    <path d="M21 21l-4.35-4.35" />
-  </svg>
-);
 
 const UserIcon = () => (
   <svg
@@ -70,20 +58,7 @@ export default function Header() {
 
         {/* Search */}
         <div className="header__search">
-          <div className="header__search-wrapper">
-            <input
-              type="text"
-              placeholder="Busca productos, accesorios, repuestos, VIN"
-              className="header__search-input"
-            />
-            <button
-              type="submit"
-              aria-label="Buscar"
-              className="header__search-btn"
-            >
-              <SearchIcon />
-            </button>
-          </div>
+          <HeaderSearch />
         </div>
 
         {/* Actions */}

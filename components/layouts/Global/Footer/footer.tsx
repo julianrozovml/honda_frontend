@@ -1,10 +1,13 @@
 import Link from "next/link";
 import LogoHondaDark from "@/components/ui/Honda/LogoHondaDark/logo-honda-dark";
+import Newsletter from "@/components/ui/Forms/Newsletter/newsletter";
+import SocialLinks from "@/components/ui/Global/SocialLinks/social-links";
+import type { NavLink, ContactItem } from "./footer.types";
 import "./footer.scss";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
-const motosCol1 = [
+const motosCol1: NavLink[] = [
   { label: "Compra ahora", href: "#" },
   { label: "Concesionarios", href: "#" },
   { label: "Financia tu moto", href: "#" },
@@ -15,7 +18,7 @@ const motosCol1 = [
   { label: "Garantía de Motos Honda", href: "#" },
 ];
 
-const motosCol2 = [
+const motosCol2: NavLink[] = [
   { label: "Rueda con Honda seguro", href: "#" },
   { label: "Mantenimiento", href: "#" },
   { label: "Clubes", href: "#" },
@@ -25,18 +28,18 @@ const motosCol2 = [
   { label: "Trabaja con nosotros", href: "#" },
 ];
 
-const hondaTeCuenta = [
+const hondaTeCuenta: NavLink[] = [
   { label: "Noticias y Blog", href: "#" },
   { label: "Videos", href: "#" },
 ];
 
-const contactInfo = [
+const contactInfo: ContactItem[] = [
   { city: "Bogotá:", phone: "601 745 9036", tel: "6017459036" },
   { city: "Medellín:", phone: "604 520 2891", tel: "6045202891" },
   { city: "Cali:", phone: "602 347 2225", tel: "6023472225" },
 ];
 
-const legalLinks = [
+const legalLinks: NavLink[] = [
   { label: "Términos y condiciones", href: "#" },
   { label: "Políticas de privacidad", href: "#" },
 ];
@@ -109,31 +112,8 @@ export default function Footer() {
 
         {/* Newsletter */}
         <div className="footer__section">
-          <p className="footer__newsletter-title">
-            No te pierdas nuestras novedades
-          </p>
-          <div className="footer__newsletter-form">
-            <input
-              type="email"
-              placeholder="Ingresa tu correo"
-              className="footer__newsletter-input"
-              aria-label="Correo electrónico"
-            />
-            <button type="button" className="footer__newsletter-btn">
-              Suscribirse
-            </button>
-          </div>
-          <label className="footer__checkbox-label">
-            <input type="checkbox" className="footer__checkbox" />
-            <span className="footer__checkbox-text">
-              Acepto los{" "}
-              <Link href="#" className="footer__checkbox-link">
-                Términos y Condiciones
-              </Link>
-              , política de privacidad y política de habeas data de la página
-              web Honda Motos.
-            </span>
-          </label>
+          <SocialLinks />
+          <Newsletter />
         </div>
       </div>
 
