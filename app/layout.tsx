@@ -4,6 +4,7 @@ import Header from "@/components/layouts/Global/Header/header";
 import Footer from "@/components/layouts/Global/Footer/footer";
 import "./globals.css";
 import "@/styles/globals.scss";
+import "swiper/css";
 
 const figtree = Figtree({
   variable: "--font-figtree",
