@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Buttons/Button/button";
 import InputSearch from "@/components/ui/Forms/InputSearch/input-search";
 import CardProductCampaign from "@/components/ui/Cards/CardProductCampaign/card-product-campaign";
@@ -88,6 +89,7 @@ function VinTooltip({ src, alt }: { src: string; alt: string }) {
 // ── Results ───────────────────────────────────────────────────────────────────
 
 function VinResults({ vin, campaigns, status }: VinResultsProps) {
+  const router = useRouter();
   if (status === "idle") return null;
 
   if (status === "loading") {
@@ -113,25 +115,37 @@ function VinResults({ vin, campaigns, status }: VinResultsProps) {
           <span>En este momento no tienes campañas abiertas.</span>
         </div>
       ) : (
-        <ul className={styles.cardGrid}>
-          {campaigns.map((campaign) => (
-            <li key={campaign.id}>
-              <CardProductCampaign
-                date={campaign.date}
-                title={campaign.title}
-                imageSrc={campaign.imageSrc}
-                imageAlt={campaign.imageAlt}
-                productName={campaign.productName}
-                models={campaign.models}
-                onShare={() => {
-                  if (typeof navigator !== "undefined" && navigator.share) {
-                    navigator.share({ title: campaign.title, url: window.location.href });
-                  }
-                }}
-              />
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className={styles.cardGrid}>
+            {campaigns.map((campaign) => (
+              <li key={campaign.id}>
+                <CardProductCampaign
+                  date={campaign.date}
+                  title={campaign.title}
+                  imageSrc={campaign.imageSrc}
+                  imageAlt={campaign.imageAlt}
+                  productName={campaign.productName}
+                  models={campaign.models}
+                  onShare={() => {
+                    if (typeof navigator !== "undefined" && navigator.share) {
+                      navigator.share({
+                        title: campaign.title,
+                        url: window.location.href,
+                      });
+                    }
+                  }}
+                />
+              </li>
+            ))}
+          </ul>
+          <div className={styles.assignAction}>
+            <Button
+              label="Solicitar campañas (5)"
+              variant="primary"
+              onClick={() => router.push("/campanias-de-seguridad/asignacion")}
+            />
+          </div>
+        </>
       )}
     </div>
   );

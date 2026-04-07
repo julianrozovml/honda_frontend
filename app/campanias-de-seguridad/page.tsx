@@ -48,7 +48,7 @@ export default async function CampaniasDeSeguridad() {
       <Container>
         <TitleOutlineLeft
           label="¿Quieres buscar campañas disponibles?"
-          as="h1"
+          as="h2"
         />
       </Container>
       <VinSearchSection
