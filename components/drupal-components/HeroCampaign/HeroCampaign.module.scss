@@ -6,6 +6,8 @@
 // ============================================================
 
 .hero {
+  margin: auto;
+  max-width: $max-width;
   position:   relative;
   width:      100%;
   overflow:   hidden;
@@ -33,17 +35,23 @@
   display:        flex;
   flex-direction: column;
   gap:            40px;
+  justify-content: center;
+
+  @include m {
+    padding: 100px 20px 20px;
+  }
 
   @include md {
     padding:        64px 32px 0px;
     flex-direction: row;
-    align-items:    center;
+    align-items:    flex-start;
     gap:            48px;
   }
 
   @include lg {
-    padding: 80px 32px 0px;
+    padding: 150px 32px 0px;
     gap:     64px;
+    padding-left: 70px;
   }
 }
 
@@ -51,7 +59,7 @@
 
 .content {
   flex:      1;
-  max-width: 560px;
+  max-width: 700px;
 }
 
 .title {
@@ -62,7 +70,10 @@
   color:        $color-primary-black;
   margin:       0 0 16px;
 
-  @include md { font-size: 24px; }
+  @include md {
+    font-size: 24px;
+    padding-top: 50px;
+  }
   @include lg { font-size: 28px; }
 }
 
