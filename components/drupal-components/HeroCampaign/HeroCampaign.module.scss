@@ -7,11 +7,14 @@
 
 .hero {
   margin: auto;
-  max-width: $max-width;
-  position:   relative;
-  width:      100%;
-  overflow:   hidden;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   background: url("/images/hero-banner-bg.webp") no-repeat center bottom / cover;
+
+  @include xxxl {
+    max-width: $max-width;
+  }
 }
 
 // ── Background pattern ────────────────────────────────────────────────────────
