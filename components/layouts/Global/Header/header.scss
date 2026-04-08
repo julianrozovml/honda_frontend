@@ -37,12 +37,24 @@
     align-items: center;
   }
 
+  // ── Logo ── responsive size ────────────────────────────────────────────────
+
+  &__logo img,
+  &__logo svg {
+    width: 100px !important;
+
+    @include md { width: 178px !important; }
+  }
+
   // ── Search ─────────────────────────────────────────────────────────────────
 
   &__search {
+    display:   none;
     flex:      1;
     max-width: 560px;
     margin:    0 1rem;
+
+    @include md { display: block; }
 
     &-wrapper {
       position: relative;
@@ -82,14 +94,16 @@
     }
   }
 
-  // ── Actions ────────────────────────────────────────────────────────────────
+  // ── Actions — desktop only ─────────────────────────────────────────────────
 
   &__actions {
-    display:     flex;
+    display:     none;
     align-items: center;
     gap:         20px;
     flex-shrink: 0;
     color:       $color-dark-500;
+
+    @include md { display: flex; }
   }
 
   &__action-btn {
@@ -153,8 +167,8 @@
   // ── Icons ──────────────────────────────────────────────────────────────────
 
   &__icon {
-    width:  16px;
-    height: 16px;
+    width:  20px;
+    height: 20px;
     stroke: currentColor;
     fill:   none;
     flex-shrink: 0;
@@ -163,5 +177,57 @@
       width:  20px;
       height: 20px;
     }
+  }
+
+  // ── Mobile controls — search icon + hamburger ──────────────────────────────
+
+  &__mobile-controls {
+    display:     flex;
+    align-items: center;
+    gap:         4px;
+    margin-left: auto;
+
+    @include md { display: none; }
+  }
+
+  &__mobile-btn {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    width:           40px;
+    height:          40px;
+    background:      none;
+    border:          none;
+    cursor:          pointer;
+    color:           $color-primary-black;
+    border-radius:   50%;
+    transition:      color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      color:            $color-primary-red;
+      background-color: $color-light-75;
+    }
+  }
+
+  // ── Mobile search panel ────────────────────────────────────────────────────
+
+  &__mobile-search {
+    overflow:   hidden;
+    max-height: 0;
+    opacity:    0;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    border-top: 1px solid transparent;
+
+    &--open {
+      max-height: 100px;
+      opacity:    1;
+      border-top-color: $color-light-200;
+    }
+
+    @include md { display: none; }
+  }
+
+  &__mobile-search-inner {
+    padding: 12px 20px;
   }
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import LogoHondaRed from "@/components/ui/Honda/LogoHondaRed/logo-honda-red";
 import HeaderSearch from "./header-search";
+import HeaderMobileControls from "./header-mobile-controls";
+import HeaderMobileSearch from "./header-mobile-search";
 import "./header.scss";
 
 // ── Inline SVG icons ──────────────────────────────────────────────────────────
@@ -56,12 +58,12 @@ export default function Header() {
           <LogoHondaRed width={178} />
         </Link>
 
-        {/* Search */}
+        {/* Search — desktop only */}
         <div className="header__search">
           <HeaderSearch />
         </div>
 
-        {/* Actions */}
+        {/* Actions — desktop only */}
         <div className="header__actions">
           {/* VIN */}
           <button type="button" className="header__action-btn">
@@ -90,7 +92,13 @@ export default function Header() {
             <span className="header__action-label">Ver carrito</span>
           </Link>
         </div>
+
+        {/* Mobile controls (search icon + hamburger) — hidden on desktop */}
+        <HeaderMobileControls />
       </div>
+
+      {/* Mobile search panel — outside header__inner to expand below the bar */}
+      <HeaderMobileSearch />
     </header>
   );
 }

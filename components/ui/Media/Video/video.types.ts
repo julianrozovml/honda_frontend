@@ -15,5 +15,7 @@ export interface VideoProps {
   controls?: boolean;
   /** Relación de aspecto del contenedor (default: 16/9) */
   aspectRatio?: "16/9" | "4/3" | "1/1";
+  /** Alto fijo en px. Cuando se define, reemplaza el aspect ratio. */
+  height?: number;
   className?: string;
 }

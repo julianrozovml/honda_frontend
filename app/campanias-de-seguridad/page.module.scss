@@ -1,0 +1,7 @@
+@use "@/styles/mixins" as *;
+
+.video {
+  height: 270px;
+
+  @include md { height: 540px; }
+}
