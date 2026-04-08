@@ -45,6 +45,7 @@ export default function VideoGeneral({
   title = "Video",
   controls = true,
   aspectRatio = "16/9",
+  height,
   className,
 }: VideoProps) {
   const src = PROVIDERS[provider](id, controls);
@@ -123,9 +124,10 @@ export default function VideoGeneral({
 
   return (
     <div
-      className={[styles.wrapper, ratioClass[aspectRatio], className]
+      className={[styles.wrapper, height ? undefined : ratioClass[aspectRatio], className]
         .filter(Boolean)
         .join(" ")}
+      style={height ? { height } : undefined}
     >
       <iframe
         ref={iframeRef}

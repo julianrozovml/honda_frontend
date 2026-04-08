@@ -9,6 +9,7 @@ import VideoGeneral from "@/components/ui/Media/Video/video";
 import Container from "@/components/ui/Layout/Container/container";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import { getIsMobile } from "@/lib/device";
+import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",
@@ -96,9 +97,10 @@ export default async function CampaniasDeSeguridad() {
       />
       <Container>
         <VideoGeneral
-          provider="vimeo"
-          id="76979871"
+          provider="youtube"
+          id="FKqJAU6tLC0"
           title="Campañas de seguridad Honda Motos Colombia"
+          className={styles.video}
         />
       </Container>
       <SliderGeneral

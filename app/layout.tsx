@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Figtree, Manrope } from "next/font/google";
 import Header from "@/components/layouts/Global/Header/header";
+import MainMenu from "@/components/layouts/MainMenu/main-menu";
 import Footer from "@/components/layouts/Global/Footer/footer";
+import { NavigationProvider } from "@/components/layouts/NavigationProvider/navigation-provider";
 import "./globals.css";
 import "@/styles/globals.scss";
 import "swiper/css";
@@ -36,7 +38,10 @@ export default function RootLayout({
       className={`${figtree.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header />
+        <NavigationProvider>
+          <Header />
+          <MainMenu />
+        </NavigationProvider>
         {children}
         <Footer />
       </body>
