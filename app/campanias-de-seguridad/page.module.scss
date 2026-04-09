@@ -1,5 +1,9 @@
 @use "@/styles/mixins" as *;
 
+.inner {
+  @include safe-area;
+}
+
 .video {
   height: 270px;
 

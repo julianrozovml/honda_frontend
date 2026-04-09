@@ -5,7 +5,6 @@ import { CampaignStepsSection } from "@/components/drupal-components/CampaignSte
 import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
 import VideoGeneral from "@/components/ui/Media/Video/video";
-import Container from "@/components/ui/Layout/Container/container";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import { getIsMobile } from "@/lib/device";
 import styles from "./page.module.scss";
@@ -89,14 +88,14 @@ export default async function CampaniasDeSeguridad() {
           alt: "Técnico Honda revisando una motocicleta",
         }}
       />
-      <Container>
+      <div className={styles.inner}>
         <VideoGeneral
           provider="youtube"
           id="FKqJAU6tLC0"
           title="Campañas de seguridad Honda Motos Colombia"
           className={styles.video}
         />
-      </Container>
+      </div>
       <SliderGeneral
         isMobile={isMobile}
         slides={[

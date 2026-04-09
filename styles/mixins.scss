@@ -37,6 +37,14 @@
   @media (min-width: #{$bp-3xl}) { @content; }
 }
 
+// ── Safe area (max-width container) ──────────────────────────────────────────
+@mixin safe-area {
+  width:     92%;
+  margin:    0 auto;
+
+  @include xxxl { max-width: $max-width; }
+}
+
 // ── Pseudo-elements ──────────────────────────────────────────────────────────
 @mixin pseudo($position: absolute, $content: "") {
   content:  $content;

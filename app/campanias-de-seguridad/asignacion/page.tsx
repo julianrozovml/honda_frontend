@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/ui/Navigation/Breadcrumb/breadcrumb";
 import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
-import Container from "@/components/ui/Layout/Container/container";
 import CampaignAssignmentForm from "@/components/drupal-components/CampaignAssignmentForm/campaign-assignment-form";
 import styles from "./page.module.scss";
 
@@ -21,7 +20,7 @@ export default function AsignacionCampanias() {
           { label: "Asignación de campañas" },
         ]}
       />
-      <Container>
+      <div className={styles.inner}>
         <TitleOutlineLeft
           label="Asignación de campañas (5), a tu moto Honda"
           as="h2"
@@ -36,7 +35,7 @@ export default function AsignacionCampanias() {
           satisfacción por favor completa el siguiente formulario para hacer
           seguimiento de tu caso
         </p>
-      </Container>
+      </div>
       <CampaignAssignmentForm campaignId="campaign-anti-wheelie-africa-twin" />
     </main>
   );

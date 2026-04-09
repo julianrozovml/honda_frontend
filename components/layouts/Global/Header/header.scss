@@ -22,11 +22,12 @@
     align-items:   center;
     gap:           1rem;
     height:        66px;
-    max-width:     $max-width;
+    max-width:     95%;
+    justify-content: space-between;
     margin-inline: auto;
     padding:       0 20px;
-
     @include md { padding: 0; }
+    @include safe-area;
   }
 
   // ── Logo ───────────────────────────────────────────────────────────────────

@@ -12,7 +12,7 @@
   background-color: $color-primary-white;
   border-bottom: 1px solid $color-primary-red;
   margin: auto;
-  max-width: $max-width;
+  @include safe-area;
 
 
 
