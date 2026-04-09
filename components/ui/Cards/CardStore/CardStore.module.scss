@@ -1,0 +1,81 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// CARD STORE — CSS Module
+// ============================================================
+
+.card {
+  background:     $color-primary-white;
+  border:         1px solid $color-light-200;
+  display:        flex;
+  flex-direction: column;
+  width:          100%;
+  height:         100%;
+}
+
+// ── Imagen ────────────────────────────────────────────────────
+
+.imageWrapper {
+  position:   relative;
+  width:       100%;
+  aspect-ratio: 1 / 1;
+  background: $color-light-75;
+  overflow:   hidden;
+}
+
+.image {
+  object-fit: contain;
+  padding:    16px;
+}
+
+// ── Body ──────────────────────────────────────────────────────
+
+.body {
+  display:        flex;
+  flex-direction: column;
+  flex:           1;
+  gap:            12px;
+  padding:        16px;
+}
+
+// ── Nombre ───────────────────────────────────────────────────
+
+.name {
+  font-family: $font-figtree;
+  font-size:   14px;
+  font-weight: $fw-medium;
+  color:       $color-primary-black;
+  line-height: 1.4;
+  margin:      0;
+}
+
+// ── Precios ───────────────────────────────────────────────────
+
+.pricing {
+  display:     flex;
+  align-items: baseline;
+  gap:         8px;
+  margin-top:  auto;
+}
+
+.price {
+  font-family: $font-figtree;
+  font-size:   20px;
+  font-weight: $fw-bold;
+  color:       $color-primary-black;
+}
+
+.originalPrice {
+  font-family:     $font-figtree;
+  font-size:       14px;
+  font-weight:     $fw-regular;
+  color:           $color-dark-300;
+  text-decoration: line-through;
+}
+
+// ── Botón comprar ─────────────────────────────────────────────
+
+.buyBtn {
+  width: 100%;
+}

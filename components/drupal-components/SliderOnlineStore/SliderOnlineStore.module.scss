@@ -1,0 +1,154 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// SLIDER ONLINE STORE — CSS Module
+// ============================================================
+
+// ── Section ───────────────────────────────────────────────────────────────────
+
+.section {
+  width:    100%;
+  overflow: hidden; // recorta el desborde derecho del slider
+  background: $color-primary-white;
+  padding:    40px 0;
+
+  @include md { padding: 56px 0; }
+}
+
+// ── Header (safe-area) ────────────────────────────────────────────────────────
+
+.inner {
+  @include safe-area;
+  display:        flex;
+  flex-direction: column;
+  gap:            24px;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header {
+  display:        flex;
+  flex-direction: column;
+  gap:            16px;
+
+  @include md {
+    flex-direction:  row;
+    align-items:     flex-end;
+    justify-content: space-between;
+    gap:             24px;
+  }
+}
+
+.headerLeft {
+  display:        flex;
+  flex-direction: column;
+  gap:            6px;
+}
+
+// ── Title ─────────────────────────────────────────────────────────────────────
+
+.title {
+  font-family:    $font-figtree;
+  font-size:      24px;
+  font-weight:    $fw-bold;
+  color:          $color-primary-black;
+  margin:         0;
+  position:       relative;
+  display:        inline-block;
+  padding-bottom: 6px;
+
+  &::after {
+    content:    '';
+    position:   absolute;
+    bottom:     0;
+    left:       0;
+    width:      100%;
+    height:     2px;
+    background: $color-primary-red;
+  }
+
+  @include md { font-size: 28px; }
+}
+
+// ── Subtitle ──────────────────────────────────────────────────────────────────
+
+.subtitle {
+  font-family: $font-figtree;
+  font-size:   14px;
+  font-weight: $fw-regular;
+  color:       $color-dark-400;
+  margin:      0;
+  line-height: 1.5;
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+
+.tabs {
+  display:       flex;
+  align-items:   flex-end;
+  border-bottom: 1px solid $color-light-200;
+  flex-shrink:   0;
+}
+
+.tab {
+  display:       flex;
+  align-items:   center;
+  gap:           6px;
+  padding:       10px 16px;
+  background:    transparent;
+  border:        none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor:        pointer;
+  font-family:   $font-figtree;
+  font-size:     14px;
+  font-weight:   $fw-medium;
+  color:         $color-dark-400;
+  white-space:   nowrap;
+  transition:    color 0.2s ease, border-color 0.2s ease;
+
+  &:hover { color: $color-primary-black; }
+}
+
+.tabActive {
+  color:        $color-primary-black;
+  border-color: $color-primary-red;
+  font-weight:  $fw-bold;
+}
+
+// ── Grid: ≤ 4 productos centrados ────────────────────────────────────────────
+
+.grid {
+  list-style:            none;
+  margin:                0;
+  padding:               0;
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   16px;
+  justify-items:         center;
+
+  @include md  { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @include lg  { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+}
+
+// ── Slider wrapper ────────────────────────────────────────────────────────────
+//
+// clip-path: inset(0 -200vw 0 0)
+//   · izquierda (0):     recorta exactamente en el borde izquierdo del wrapper
+//                        → los slides que salen por la izquierda quedan ocultos
+//   · derecha (-200vw):  extiende la región visible 200vw hacia la derecha
+//                        → el card parcial es visible más allá del safe-area
+// .section { overflow: hidden } recorta el desborde en el borde del viewport.
+
+.sliderWrapper {
+  clip-path: inset(0 -200vw 0 0);
+
+  :global(.swiper) {
+    overflow: visible;
+  }
+}
+
+// ── Controls ─────────────────────────────────────────────────────────────────
+
+@include slider-controls;

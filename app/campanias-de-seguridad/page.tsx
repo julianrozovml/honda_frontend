@@ -6,6 +6,8 @@ import { VinSearchSection } from "@/components/drupal-components/VinSearchSectio
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
 import VideoGeneral from "@/components/ui/Media/Video/video";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
+import { SliderOnlineStore } from "@/components/drupal-components/SliderOnlineStore/slider-online-store";
+import { MOCK_STORE_TABS } from "@/components/drupal-components/SliderOnlineStore/slider-online-store.mock";
 import { getIsMobile } from "@/lib/device";
 import styles from "./page.module.scss";
 
@@ -116,6 +118,7 @@ export default async function CampaniasDeSeguridad() {
           },
         ]}
       />
+      <SliderOnlineStore tabs={MOCK_STORE_TABS} />
     </main>
   );
 }
