@@ -60,7 +60,7 @@ export default async function CampaniasDeSeguridad() {
         title="¿Qué es una campaña de seguridad?"
         description="Honda realiza campañas de seguridad para garantizar que tu moto funcione de manera segura y confiable. Estas campañas consisten en la revisión o reemplazo de ciertas piezas o componentes que, por medidas preventivas, podrían presentar algún riesgo con el tiempo."
         image={{
-          src: "/images/hero-campaign.png",
+          src: "/images/hero-campaign.webp",
           alt: "Motocicleta Honda campañas de seguridad",
         }}
       />
