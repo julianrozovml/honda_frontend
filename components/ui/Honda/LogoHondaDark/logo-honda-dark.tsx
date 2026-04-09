@@ -1,5 +1,4 @@
 import Image from "next/image";
-import logoSrc from "@/assets/images/logo-honda-dark.svg";
 import type { LogoHondaDarkProps } from "./logo-honda-dark.types";
 
 export default function LogoHondaDark({
@@ -8,9 +7,10 @@ export default function LogoHondaDark({
 }: LogoHondaDarkProps) {
   return (
     <Image
-      src={logoSrc}
+      src="/images/logo-honda-dark.svg"
       alt="Honda"
       width={width}
+      height={28}
       className={className}
       priority
     />
