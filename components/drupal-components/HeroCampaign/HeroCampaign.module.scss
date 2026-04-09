@@ -7,11 +7,14 @@
 
 .hero {
   margin: auto;
-  max-width: $max-width;
-  position:   relative;
-  width:      100%;
-  overflow:   hidden;
-  background: url("/images/hero-banner-bg.webp") no-repeat center bottom / cover;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+
+  @include xxxl {
+    max-width: $max-width;
+  }
 }
 
 // ── Background pattern ────────────────────────────────────────────────────────
@@ -42,16 +45,15 @@
   }
 
   @include md {
-    padding:        64px 32px 0px;
+    padding:        64px 32px;
     flex-direction: row;
-    align-items:    flex-start;
+    align-items:    center;
     gap:            48px;
   }
 
   @include lg {
-    padding: 150px 32px 0px;
+    padding: 50px 32px;
     gap:     64px;
-    padding-left: 70px;
   }
 }
 
@@ -59,7 +61,7 @@
 
 .content {
   flex:      1;
-  max-width: 700px;
+  max-width: 500px;
 }
 
 .title {
@@ -71,15 +73,15 @@
   margin:       0 0 16px;
 
   @include md {
-    font-size: 24px;
+    font-size: 22px;
     padding-top: 50px;
   }
-  @include lg { font-size: 28px; }
+  @include lg { font-size: 24px; }
 }
 
 .description {
   font-family: $font-figtree;
-  font-size:   16px;
+  font-size:   14px;
   font-weight: 400;
   line-height: 1.6;
   color:       $color-primary-black;
@@ -97,12 +99,16 @@
     display:     block;
     position:    relative;
     flex-shrink: 0;
-    width:       45%;
+    width:       30%;
     height:      380px;
   }
 
   @include lg {
-    height: 460px;
+    height: 380px;
+  }
+  img{
+    max-width: 550px;
+    margin: auto;
   }
 }
 
