@@ -205,7 +205,7 @@ export function VinSearchSection({
             <Button
               type="submit"
               label={status === "loading" ? "Buscando…" : buttonLabel}
-              variant="primary"
+              variant={status === "loading" || !vin.trim() ? "secondary" : "primary"}
               disabled={status === "loading" || !vin.trim()}
               className={styles.submitBtn}
             />
