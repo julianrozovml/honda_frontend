@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/ui/Navigation/Breadcrumb/breadcrumb";
-import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import { HeroCampaign } from "@/components/drupal-components/HeroCampaign/hero-campaign";
 import { CampaignStepsSection } from "@/components/drupal-components/CampaignStepsSection/campaign-steps-section";
 import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
 import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
 import VideoGeneral from "@/components/ui/Media/Video/video";
-import Container from "@/components/ui/Layout/Container/container";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import { getIsMobile } from "@/lib/device";
 import styles from "./page.module.scss";
@@ -46,13 +44,8 @@ export default async function CampaniasDeSeguridad() {
           { label: "Campañas de seguridad" },
         ]}
       />
-      <Container>
-        <TitleOutlineLeft
-          label="¿Quieres buscar campañas disponibles?"
-          as="h2"
-        />
-      </Container>
       <VinSearchSection
+        title="¿Quieres buscar campañas disponibles?"
         onSearch={searchCampaignsByVin}
         tooltipImage={{
           src: "/images/vin-location.png",
@@ -95,14 +88,14 @@ export default async function CampaniasDeSeguridad() {
           alt: "Técnico Honda revisando una motocicleta",
         }}
       />
-      <Container>
+      <div className={styles.inner}>
         <VideoGeneral
           provider="youtube"
           id="FKqJAU6tLC0"
           title="Campañas de seguridad Honda Motos Colombia"
           className={styles.video}
         />
-      </Container>
+      </div>
       <SliderGeneral
         isMobile={isMobile}
         slides={[

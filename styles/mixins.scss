@@ -37,10 +37,114 @@
   @media (min-width: #{$bp-3xl}) { @content; }
 }
 
+// ── Safe area (max-width container) ──────────────────────────────────────────
+@mixin safe-area {
+  width:     92%;
+  margin:    0 auto;
+
+  @include xxxl { max-width: $max-width; }
+}
+
 // ── Pseudo-elements ──────────────────────────────────────────────────────────
 @mixin pseudo($position: absolute, $content: "") {
   content:  $content;
   display:  block;
   position: $position;
   @content;
+}
+
+// ── Slider controls (prev · dots · next) ─────────────────────────────────────
+// Genera los estilos completos para .controls, .navBtn, .dots, .dot y .dotActive.
+// Compatible con CSS Modules: las clases son procesadas por el bundler al compilar.
+//
+// Parámetros:
+//   $nav-color        — color base de los botones prev/next
+//   $nav-hover        — color hover de prev/next
+//   $dot-border       — color del borde del dot inactivo
+//   $dot-active-fill  — color del relleno interior del dot activo
+//   $focus-ring       — color del outline de foco accesible
+//   $dot-size         — diámetro del dot
+//   $dot-inner-size   — diámetro del punto interior activo
+//   $gap              — separación entre controles en mobile
+//   $gap-sm           — separación entre controles desde breakpoint sm
+@mixin slider-controls(
+  $nav-color:       $color-dark-400,
+  $nav-hover:       $color-primary-black,
+  $dot-border:      $color-light-400,
+  $dot-active-fill: $color-primary-black,
+  $focus-ring:      $color-primary-red,
+  $dot-size:        16px,
+  $dot-inner-size:  8px,
+  $gap:             16px,
+  $gap-sm:          30px,
+) {
+  .controls {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             $gap;
+    padding:         16px 0;
+
+    @include sm { gap: $gap-sm; }
+  }
+
+  .navBtn {
+    background:  none;
+    border:      none;
+    cursor:      pointer;
+    color:       $nav-color;
+    display:     flex;
+    align-items: center;
+    padding:     4px;
+    transition:  color 0.2s ease;
+
+    &:hover { color: $nav-hover; }
+
+    &:focus-visible {
+      outline:        2px solid $focus-ring;
+      outline-offset: 4px;
+      border-radius:  4px;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor:  default;
+    }
+  }
+
+  .dots {
+    display:     flex;
+    align-items: center;
+    gap:         10px;
+  }
+
+  .dot {
+    width:         $dot-size;
+    height:        $dot-size;
+    border-radius: 50%;
+    background:    transparent;
+    border:        1.5px solid $dot-border;
+    padding:       0;
+    position:      relative;
+    cursor:        pointer;
+    transition:    background 0.2s ease, border-color 0.2s ease;
+
+    &:focus-visible {
+      outline:        2px solid $focus-ring;
+      outline-offset: 4px;
+    }
+  }
+
+  .dotActive {
+    &::after {
+      @include pseudo {
+        width:         $dot-inner-size;
+        height:        $dot-inner-size;
+        inset:         0;
+        margin:        auto;
+        border-radius: 50%;
+        background:    $dot-active-fill;
+      }
+    }
+  }
 }

@@ -7,47 +7,11 @@ import type { Swiper as SwiperType } from "swiper";
 import Image from "next/image";
 import Link from "next/link";
 import type { SliderGeneralProps } from "./slider-general.types";
+import ChevronLeft from "@/components/ui/Icons/Chevron/ChevronLeft/chevron-left";
+import ChevronRight from "@/components/ui/Icons/Chevron/ChevronRight/chevron-right";
 import styles from "./SliderGeneral.module.scss";
 
 // swiper/css se importa globalmente en app/layout.tsx
-
-// ── Icons ─────────────────────────────────────────────────────────────────────
-
-function ChevronLeftIcon() {
-  return (
-    <svg
-      width="34"
-      height="34"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="15 18 9 12 15 6" />
-    </svg>
-  );
-}
-
-function ChevronRightIcon() {
-  return (
-    <svg
-      width="34"
-      height="34"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  );
-}
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -116,7 +80,7 @@ export default function SliderGeneral({
             onClick={() => swiper?.slidePrev()}
             aria-label="Slide anterior"
           >
-            <ChevronLeftIcon />
+            <ChevronLeft size={34} />
           </button>
 
           <div className={styles.dots} role="tablist" aria-label="Slides">
@@ -144,7 +108,7 @@ export default function SliderGeneral({
             onClick={() => swiper?.slideNext()}
             aria-label="Slide siguiente"
           >
-            <ChevronRightIcon />
+            <ChevronRight size={34} />
           </button>
         </div>
       )}

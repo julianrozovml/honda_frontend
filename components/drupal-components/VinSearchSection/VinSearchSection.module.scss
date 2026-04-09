@@ -8,78 +8,76 @@
 // ── Wrapper ───────────────────────────────────────────────────────────────────
 
 .wrapper {
-  width:      100%;
-  background: $color-primary-white;
+  width: 100%;
 }
 
 // ── Form section ──────────────────────────────────────────────────────────────
 
 .formSection {
-  position:      relative;
-  background:    $color-light-200;
-  padding:       24px 20px;
-  border-bottom: 1px solid $color-dark-200;
-  overflow:      hidden;
+  position:         relative;
+  width:            100%;
+  background-color: $color-light-75;
+  padding:          50px 15px;
 
-  @include md { padding: 32px; }
-}
+  @include md { padding: 72px 20px; }
 
-// ── Section image (upper right, desktop only) ─────────────────────────────────
+  &::before {
+    content:             '';
+    position:            absolute;
+    inset:               0;
+    background-image:    url("/bg/bg-form1.svg");
+    background-repeat:   no-repeat;
+    background-position: right;
+    background-size:     contain;
+    opacity:             0.5;
+    pointer-events:      none;
 
-.sectionImage {
-  display: none;
-
-  @include md {
-    display:  block;
-    position: absolute;
-    top:      0;
-    right:    0;
-    width:    280px;
-    height:   100%;
-  }
-
-  @include lg {
-    width: 360px;
+    @include md { background-position: right -200px center; }
   }
 }
 
-.sectionImageImg {
-  object-fit:      contain;
-  object-position: right bottom;
-}
+// ── Inner — centrado con max-width ────────────────────────────────────────────
 
-// ── Label row ────────────────────────────────────────────────────────────────
-
-.labelRow {
-  display:       flex;
-  align-items:   center;
-  gap:           8px;
-  margin-bottom: 10px;
-}
-
-.label {
-  font-family: $font-figtree;
-  font-size:   14px;
-  font-weight: 600;
-  color:       $color-primary-black;
-  line-height: 1.4;
-}
-
-// ── Input row ─────────────────────────────────────────────────────────────────
-
-.inputRow {
+.formInner {
+  max-width:      630px;
+  margin:         0 auto;
   display:        flex;
   flex-direction: column;
-  align-items:    stretch;
-  gap:            12px;
-
-  @include sm { flex-direction: row; }
+  align-items:    center;
+  gap:            28px;
+  text-align:     center;
 }
 
-.inputWrapper {
-  width: 100%;
+// ── Heading ───────────────────────────────────────────────────────────────────
 
-  @include sm { width: 320px; }
+.heading {
+  font-family: $font-figtree;
+  font-size:   26px;
+  font-weight: $fw-bold;
+  color:       $color-primary-black;
+  line-height: 1.25;
+  margin:      0;
+  text-align: left;
+
+  @include sm { text-align: center; }
+  @include md { font-size: 34px; }
+}
+
+// ── Form ──────────────────────────────────────────────────────────────────────
+
+.form {
+  width:          100%;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            16px;
+}
+
+// ── Input wrapper ─────────────────────────────────────────────────────────────
+
+.inputWrapper {
+  width:     100%;
+  max-width: 480px;
 }
 
 // ── Submit button ─────────────────────────────────────────────────────────────
@@ -87,7 +85,7 @@
 .submitBtn {
   width: 100%;
 
-  @include sm { width: auto; }
+  @include md { width: auto; }
 }
 
 // ── Tooltip ───────────────────────────────────────────────────────────────────

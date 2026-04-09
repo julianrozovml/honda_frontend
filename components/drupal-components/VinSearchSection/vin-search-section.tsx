@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, forwardRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Buttons/Button/button";
@@ -88,13 +88,14 @@ function VinTooltip({ src, alt }: { src: string; alt: string }) {
 
 // ── Results ───────────────────────────────────────────────────────────────────
 
-function VinResults({ vin, campaigns, status }: VinResultsProps) {
+const VinResults = forwardRef<HTMLDivElement, VinResultsProps>(
+  function VinResults({ vin, campaigns, status }, ref) {
   const router = useRouter();
   if (status === "idle") return null;
 
   if (status === "loading") {
     return (
-      <div className={styles.resultsSection}>
+      <div ref={ref} className={styles.resultsSection}>
         <div className={styles.loadingState}>
           <SpinnerIcon />
           <span>Buscando campañas…</span>
@@ -104,7 +105,7 @@ function VinResults({ vin, campaigns, status }: VinResultsProps) {
   }
 
   return (
-    <div className={styles.resultsSection}>
+    <div ref={ref} className={styles.resultsSection}>
       <h3 className={styles.resultsTitle}>
         Campañas para <q>{vin}</q>
       </h3>
@@ -149,32 +150,30 @@ function VinResults({ vin, campaigns, status }: VinResultsProps) {
       )}
     </div>
   );
-}
+});
 
 // ── Main Component ────────────────────────────────────────────────────────────
 
 export function VinSearchSection({
-  label = "Número de VIN",
+  title       = "¿Quieres buscar campañas disponibles?",
   placeholder = "Ingresa el VIN de motocicleta...",
   buttonLabel = "Comprobar campaña(s)",
   tooltipImage,
   image,
   onSearch,
 }: VinSearchSectionProps) {
-  const [vin, setVin] = useState<string>("");
+  const [vin, setVin]             = useState<string>("");
   const [submitted, setSubmitted] = useState<string>("");
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
-  const [status, setStatus] = useState<SearchStatus>("idle");
+  const [status, setStatus]       = useState<SearchStatus>("idle");
+  const resultsRef                = useRef<HTMLDivElement>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
     const trimmed = vin.trim();
     if (!trimmed) return;
-
     setStatus("loading");
     setSubmitted(trimmed);
-
     try {
       const results = await onSearch(trimmed);
       setCampaigns(results);
@@ -182,6 +181,8 @@ export function VinSearchSection({
     } catch {
       setCampaigns([]);
       setStatus("error");
+    } finally {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
@@ -189,30 +190,10 @@ export function VinSearchSection({
     <div className={styles.wrapper}>
       {/* ── Search form ─────────────────────────────────────────────────── */}
       <div className={styles.formSection}>
-        {image && (
-          <div className={styles.sectionImage}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className={styles.sectionImageImg}
-              sizes="(max-width: 768px) 0vw, 30vw"
-            />
-          </div>
-        )}
-        <form onSubmit={handleSubmit} noValidate>
-          {/* Label row */}
-          <div className={styles.labelRow}>
-            <label htmlFor="vin-input" className={styles.label}>
-              {label}
-            </label>
-            {tooltipImage && (
-              <VinTooltip src={tooltipImage.src} alt={tooltipImage.alt} />
-            )}
-          </div>
+        <div className={styles.formInner}>
+          {title && <h2 className={styles.heading}>{title}</h2>}
 
-          {/* Input + button row */}
-          <div className={styles.inputRow}>
+          <form onSubmit={handleSubmit} noValidate className={styles.form}>
             <InputSearch
               value={vin}
               onChange={(val) => setVin(val.toUpperCase())}
@@ -224,15 +205,16 @@ export function VinSearchSection({
             <Button
               type="submit"
               label={status === "loading" ? "Buscando…" : buttonLabel}
+              variant={status === "loading" || !vin.trim() ? "secondary" : "primary"}
               disabled={status === "loading" || !vin.trim()}
               className={styles.submitBtn}
             />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
       {/* ── Results ─────────────────────────────────────────────────────── */}
-      <VinResults vin={submitted} campaigns={campaigns} status={status} />
+      <VinResults vin={submitted} campaigns={campaigns} status={status} ref={resultsRef} />
     </div>
   );
 }

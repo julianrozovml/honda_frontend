@@ -10,8 +10,9 @@
 .main-menu {
   width:            100%;
   background-color: $color-primary-white;
+  border-bottom: 1px solid $color-primary-red;
   margin: auto;
-  max-width: $max-width;
+  @include safe-area;
 
 
 
@@ -40,20 +41,20 @@
       color:       $color-primary-red;
       font-weight: $fw-semibold;
 
-      &::after {
-        content:          "";
-        position:         absolute;
-        bottom:           0;
-        left:             14px;
-        right:            14px;
-        height:           2px;
-        background-color: $color-primary-red;
-      }
+      // &::after {
+      //   content:          "";
+      //   position:         absolute;
+      //   bottom:           0;
+      //   left:             14px;
+      //   right:            14px;
+      //   height:           2px;
+      //   background-color: $color-primary-red;
+      // }
     }
 
     &--highlight > .main-menu__link {
-      color:       $color-primary-red;
-      font-weight: $fw-semibold;
+      // color:       $color-primary-red;
+      // font-weight: $fw-semibold;
     }
 
     // Show dropdown when open

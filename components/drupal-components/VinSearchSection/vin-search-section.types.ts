@@ -31,8 +31,8 @@ export interface VinSectionImage {
 }
 
 export interface VinSearchSectionProps {
-  /** Label above the input */
-  label?: string;
+  /** Título principal de la sección */
+  title?: string;
 
   /** Input placeholder */
   placeholder?: string;
