@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import LogoHondaRed from "@/components/ui/Honda/LogoHondaRed/logo-honda-red";
 import { useNavigation } from "@/components/layouts/NavigationProvider/navigation-provider";
+import ChevronDown from "@/components/ui/Icons/Chevron/ChevronDown/chevron-down";
+import ChevronRight from "@/components/ui/Icons/Chevron/ChevronRight/chevron-right";
 import type { NavItem } from "./main-menu.types";
 import "./main-menu.scss";
 
@@ -43,17 +45,6 @@ const AwardIcon = () => (
   </svg>
 );
 
-const ChevronDownIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="6 9 12 15 18 9" />
-  </svg>
-);
-
-const ChevronRightIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="9 18 15 12 9 6" />
-  </svg>
-);
 
 
 const SearchIcon = () => (
@@ -184,7 +175,7 @@ export default function MainMenu() {
                       >
                         {item.label}
                         <span className="main-menu__chevron" aria-hidden="true">
-                          <ChevronDownIcon />
+                          <ChevronDown strokeWidth={2} />
                         </span>
                       </button>
 
@@ -283,7 +274,7 @@ export default function MainMenu() {
                     >
                       {item.label}
                       <span className="main-menu__mobile-chevron" aria-hidden="true">
-                        {isExpanded ? <ChevronDownIcon /> : <ChevronRightIcon />}
+                        {isExpanded ? <ChevronDown strokeWidth={2} /> : <ChevronRight strokeWidth={2} />}
                       </span>
                     </button>
 
@@ -317,7 +308,7 @@ export default function MainMenu() {
                     {item.label}
                     {showArrow && (
                       <span className="main-menu__mobile-chevron" aria-hidden="true">
-                        <ChevronRightIcon />
+                        <ChevronRight strokeWidth={2} />
                       </span>
                     )}
                   </Link>
