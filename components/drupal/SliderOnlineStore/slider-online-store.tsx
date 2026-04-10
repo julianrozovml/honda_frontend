@@ -6,6 +6,7 @@ import type { Swiper as SwiperType } from "swiper";
 import CardStore from "@/components/ui/Cards/CardStore/card-store";
 import ChevronLeft from "@/components/ui/Icons/Chevron/ChevronLeft/chevron-left";
 import ChevronRight from "@/components/ui/Icons/Chevron/ChevronRight/chevron-right";
+import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import type {
   SliderOnlineStoreProps,
   StoreTabIcon,
@@ -101,7 +102,7 @@ export function SliderOnlineStore({
         {/* ── Header ────────────────────────────────────────────────── */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h2 className={styles.title}>{title}</h2>
+            <TitleOutlineLeft label={title} />
             <p className={styles.subtitle}>{subtitle}</p>
           </div>
 
@@ -146,7 +147,9 @@ export function SliderOnlineStore({
                   1280: { slidesPerView: 4.2, spaceBetween: 24 },
                 }}
               >
-                {loopSlides.map((product, i) => (
+                {loopSlides.map((product) => {
+                  const isFirst = product.id === activeTab.products[0].id;
+                  return (
                   <SwiperSlide key={product._key}>
                     <CardStore
                       id={product.id}
@@ -156,10 +159,12 @@ export function SliderOnlineStore({
                       price={product.price}
                       originalPrice={product.originalPrice}
                       buyUrl={product.buyUrl}
-                      priority={i === 0}
+                      priority={isFirst}
+                      loading={isFirst ? undefined : "eager"}
                     />
                   </SwiperSlide>
-                ))}
+                  );
+                })}
               </Swiper>
             </div>
 
@@ -201,7 +206,7 @@ export function SliderOnlineStore({
         ) : (
           /* ── Grid centrado: ≤ 4 productos ──────────────────────── */
           <ul className={styles.grid}>
-            {activeTab.products.map((product) => (
+            {activeTab.products.map((product, i) => (
               <li key={product.id}>
                 <CardStore
                   id={product.id}
@@ -211,6 +216,7 @@ export function SliderOnlineStore({
                   price={product.price}
                   originalPrice={product.originalPrice}
                   buyUrl={product.buyUrl}
+                  priority={i === 0}
                 />
               </li>
             ))}

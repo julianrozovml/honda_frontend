@@ -11,6 +11,7 @@ export default function CardStore({
   originalPrice,
   buyUrl,
   priority = false,
+  loading,
 }: CardStoreProps) {
   return (
     <article className={styles.card}>
@@ -22,6 +23,7 @@ export default function CardStore({
           className={styles.image}
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 25vw"
           priority={priority}
+          loading={loading}
         />
       </div>
 

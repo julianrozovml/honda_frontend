@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/ui/Navigation/Breadcrumb/breadcrumb";
 import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
-import CampaignAssignmentForm from "@/components/drupal-components/CampaignAssignmentForm/campaign-assignment-form";
+import CampaignAssignmentForm from "@/components/drupal/CampaignAssignmentForm/campaign-assignment-form";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {

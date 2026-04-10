@@ -18,4 +18,6 @@ export interface CardStoreProps {
   buyUrl: string;
   /** Marca la imagen como LCP (primer card visible del slider) */
   priority?: boolean;
+  /** Carga eager para imágenes above the fold que no son LCP */
+  loading?: "eager" | "lazy";
 }

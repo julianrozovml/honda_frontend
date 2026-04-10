@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/ui/Navigation/Breadcrumb/breadcrumb";
-import { HeroCampaign } from "@/components/drupal-components/HeroCampaign/hero-campaign";
-import { CampaignStepsSection } from "@/components/drupal-components/CampaignStepsSection/campaign-steps-section";
-import { VinSearchSection } from "@/components/drupal-components/VinSearchSection/vin-search-section";
-import type { Campaign } from "@/components/drupal-components/VinSearchSection/vin-search-section.types";
+import { HeroCampaign } from "@/components/drupal/HeroCampaign/hero-campaign";
+import { CampaignStepsSection } from "@/components/drupal/CampaignStepsSection/campaign-steps-section";
+import { VinSearchSection } from "@/components/drupal/VinSearchSection/vin-search-section";
+import type { Campaign } from "@/components/drupal/VinSearchSection/vin-search-section.types";
 import VideoGeneral from "@/components/ui/Media/Video/video";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
-import { SliderOnlineStore } from "@/components/drupal-components/SliderOnlineStore/slider-online-store";
-import { MOCK_STORE_TABS } from "@/components/drupal-components/SliderOnlineStore/slider-online-store.mock";
+import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
+import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
 import { getIsMobile } from "@/lib/device";
 import styles from "./page.module.scss";
 
