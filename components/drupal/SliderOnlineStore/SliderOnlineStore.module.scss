@@ -13,7 +13,7 @@
   background: $color-primary-white;
   padding:    40px 0;
 
-  @include md { padding: 56px 0; }
+  @include md { padding: 56px 0 76px; }
 }
 
 // ── Header (safe-area) ────────────────────────────────────────────────────────

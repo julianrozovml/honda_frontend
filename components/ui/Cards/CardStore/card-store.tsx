@@ -15,6 +15,8 @@ export default function CardStore({
 }: CardStoreProps) {
   return (
     <article className={styles.card}>
+      <h3 className={styles.name}>{name}</h3>
+
       <div className={styles.imageWrapper}>
         <Image
           src={imageSrc}
@@ -28,8 +30,6 @@ export default function CardStore({
       </div>
 
       <div className={styles.body}>
-        <h3 className={styles.name}>{name}</h3>
-
         <div className={styles.pricing}>
           <span className={styles.price}>{price}</span>
           {originalPrice && (
