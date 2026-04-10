@@ -11,10 +11,7 @@
   width: 100%;
   overflow: hidden;
   background: transparent;
-
-  @include xxxl {
-    max-width: $max-width;
-  }
+  @include safe-area;
 }
 
 // ── Background pattern ────────────────────────────────────────────────────────
@@ -95,7 +92,7 @@
 .imageWrapper {
   display: none;
 
-  @include md {
+  @include sm {
     display:     block;
     position:    relative;
     flex-shrink: 0;
