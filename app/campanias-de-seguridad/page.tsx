@@ -37,7 +37,7 @@ async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
 }
 
 export default async function CampaniasDeSeguridad() {
-  const isMobile = await getIsMobile();
+  const isMobile = await getIsMobile(640);
   return (
     <main className="campanias">
       <Breadcrumb
@@ -72,8 +72,8 @@ export default async function CampaniasDeSeguridad() {
           {
             id: 1,
             description:
-                "Verifica si tu moto está incluida en la campaña de seguridad. Esto se puede hacer ingresando tu número VIN en el campo de arriba o consultando con tu concesionario Honda más cercano.",
-                link: {
+              "Verifica si tu moto está incluida en la campaña de seguridad. Esto se puede hacer ingresando tu número VIN en el campo de arriba o consultando con tu concesionario Honda más cercano.",
+            link: {
               label: "campo de arriba",
               href: "#vin",
             },
@@ -84,7 +84,9 @@ export default async function CampaniasDeSeguridad() {
               "Cuando te contacten, acércate a tu concesionario autorizado para realizar, sin ningún costo, el reemplazo del repuesto.",
           },
         ]}
-        closingText={isMobile ? "¡Y listo! Así de fácil." : "¡Y listo!\nAsí de fácil."}
+        closingText={
+          isMobile ? "¡Y listo! Así de fácil." : "¡Y listo!\nAsí de fácil."
+        }
         image={{
           src: "/images/campaign-steps.png",
           alt: "Técnico Honda revisando una motocicleta",
