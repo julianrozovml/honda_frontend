@@ -37,7 +37,7 @@ export async function CampaignStepsSection({
   closingText,
   image,
 }: CampaignStepsSectionProps) {
-  const mobile = await getIsMobile();
+  const mobile = await getIsMobile(640);
 
   return (
     <section className={styles.section}>
