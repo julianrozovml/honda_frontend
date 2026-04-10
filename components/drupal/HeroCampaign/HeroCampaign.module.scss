@@ -100,11 +100,11 @@
     position:    relative;
     flex-shrink: 0;
     width:       30%;
-    height:      380px;
+    height:      160px;
   }
 
   @include lg {
-    height: 380px;
+    height: 210px;
   }
   img{
     max-width: 550px;
