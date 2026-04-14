@@ -59,10 +59,14 @@
 
 .pricing {
   display:     flex;
+  border-top: 1px solid $color-light-200;
   justify-content: center;
   align-items: baseline;
   gap:         8px;
-  margin-top:  auto;
+  margin: auto;
+  padding-top: 8px;
+  width: 100%;
+  max-width: 200px;
 }
 
 .price {
