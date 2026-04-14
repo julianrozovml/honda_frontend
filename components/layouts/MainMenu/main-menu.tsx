@@ -133,7 +133,7 @@ const NAV_ITEMS: NavItem[] = [
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function MainMenu() {
+export default function MainMenu({ isMobile }: { isMobile: boolean }) {
   const { isMenuOpen: isOpen, closeMenu: closeMenuCtx } = useNavigation();
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -146,12 +146,9 @@ export default function MainMenu() {
     setActiveId(null);
   }
 
-  return (
-    <>
-      {/* ── Desktop nav bar ──────────────────────────────────────────────── */}
-      <div className="main-menu">
-        {/* Desktop nav — hidden on mobile */}
-        <nav className="main-menu__nav" aria-label="Navegación principal">
+  if (!isMobile) return (
+    <div className="main-menu">
+      <nav className="main-menu__nav" aria-label="Navegación principal">
           <ul className="main-menu__list">
             {NAV_ITEMS.map((item) => {
               const isExpanded = activeId === item.id;
@@ -211,8 +208,11 @@ export default function MainMenu() {
           </ul>
         </nav>
       </div>
+  );
 
-      {/* ── Mobile overlay + drawer ───────────────────────────────────────── */}
+  return (
+    <>
+      {/* ── Mobile overlay ───────────────────────────────────────────────── */}
       {isOpen && (
         <div
           className="main-menu__overlay"
@@ -221,6 +221,7 @@ export default function MainMenu() {
         />
       )}
 
+      {/* ── Mobile drawer ────────────────────────────────────────────────── */}
       <div
         className={["main-menu__drawer", isOpen ? "main-menu__drawer--open" : ""].filter(Boolean).join(" ")}
         role="dialog"
@@ -337,3 +338,4 @@ export default function MainMenu() {
     </>
   );
 }
+
