@@ -13,4 +13,8 @@ export interface CardProductCampaignProps {
   models: string[];
   /** Callback al pulsar el botón de compartir */
   onShare?: () => void;
+  /** Descripción del producto */
+  description: string;
+  /** Indica si es vista mobile */
+  isMobile?: boolean;
 }
