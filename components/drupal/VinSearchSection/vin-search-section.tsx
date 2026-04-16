@@ -89,7 +89,7 @@ function VinTooltip({ src, alt }: { src: string; alt: string }) {
 // ── Results ───────────────────────────────────────────────────────────────────
 
 const VinResults = forwardRef<HTMLDivElement, VinResultsProps>(
-  function VinResults({ vin, campaigns, status }, ref) {
+  function VinResults({ vin, campaigns, status, isMobile = false }, ref) {
   const router = useRouter();
   if (status === "idle") return null;
 
@@ -127,6 +127,8 @@ const VinResults = forwardRef<HTMLDivElement, VinResultsProps>(
                   imageAlt={campaign.imageAlt}
                   productName={campaign.productName}
                   models={campaign.models}
+                  description={campaign.description}
+                  isMobile={isMobile}
                   onShare={() => {
                     if (typeof navigator !== "undefined" && navigator.share) {
                       navigator.share({
@@ -161,6 +163,7 @@ export function VinSearchSection({
   tooltipImage,
   image,
   onSearch,
+  isMobile = false,
 }: VinSearchSectionProps) {
   const [vin, setVin]             = useState<string>("");
   const [submitted, setSubmitted] = useState<string>("");
@@ -214,7 +217,7 @@ export function VinSearchSection({
       </div>
 
       {/* ── Results ─────────────────────────────────────────────────────── */}
-      <VinResults vin={submitted} campaigns={campaigns} status={status} ref={resultsRef} />
+      <VinResults vin={submitted} campaigns={campaigns} status={status} isMobile={isMobile} ref={resultsRef} />
     </div>
   );
 }
