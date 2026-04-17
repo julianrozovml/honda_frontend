@@ -8,8 +8,6 @@ export async function HeroCampaign({
   description,
   image,
 }: HeroCampaignProps) {
-  // Mismo umbral que $bp-sm (640px): sin imagen en HTML por debajo cuando el servidor
-  // conoce el ancho (Sec-CH-Viewport-Width) o por UA si no hay hint.
   const mobile = await getIsMobile(640);
 
   return (

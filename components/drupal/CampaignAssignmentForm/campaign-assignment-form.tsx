@@ -4,6 +4,8 @@ import { useState } from "react";
 import Input from "@/components/ui/Forms/Input/input";
 import Select from "@/components/ui/Forms/Select/select";
 import Button from "@/components/ui/Buttons/Button/button";
+import { ModalConfirm } from "@/components/ui/Modal/ModalConfirm/modal-confirm";
+import { ModalError } from "@/components/ui/Modal/ModalError/modal-error";
 import type {
   CampaignAssignmentFormProps,
   CampaignAssignmentFormFields,
@@ -53,6 +55,8 @@ export default function CampaignAssignmentForm({
 }: CampaignAssignmentFormProps) {
   const [fields, setFields] = useState<CampaignAssignmentFormFields>(INITIAL);
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   function set<K extends keyof CampaignAssignmentFormFields>(
     key: K,
@@ -84,15 +88,38 @@ export default function CampaignAssignmentForm({
 
     setLoading(true);
     try {
-      // TODO: conectar con API de Drupal
-      console.log("Enviando campaña:", campaignId, fields);
+      // TODO: reemplazar con drupalFetch cuando el endpoint esté disponible
+      await new Promise<void>((resolve, reject) =>
+        setTimeout(() => (Math.random() > 0.5 ? resolve() : reject()), 1500)
+      );
+      setShowSuccess(true);
       onSuccess?.();
+    } catch {
+      setShowError(true);
     } finally {
       setLoading(false);
     }
   }
 
+  function handleSuccessClose() {
+    setShowSuccess(false);
+    setFields(INITIAL);
+  }
+
   return (
+    <>
+    <ModalConfirm
+      open={showSuccess}
+      onClose={handleSuccessClose}
+      title="Datos enviados con éxito"
+      description="Serás notificado por correo por uno de nuestros agentes una vez valide tu(s) campaña(s)."
+    />
+    <ModalError
+      open={showError}
+      onClose={() => setShowError(false)}
+      title="Error al enviar los datos"
+      description="Ocurrió un problema al enviar tu solicitud. Por favor intenta de nuevo más tarde."
+    />
     <form onSubmit={handleSubmit} noValidate className={styles.form}>
       <div className={styles.inner}>
       <div className={styles.grid}>
@@ -195,5 +222,6 @@ export default function CampaignAssignmentForm({
       </div>
       </div>
     </form>
+    </>
   );
 }

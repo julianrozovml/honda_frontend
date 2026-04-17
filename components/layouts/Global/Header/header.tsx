@@ -49,7 +49,7 @@ const MapPinIcon = () => (
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function Header() {
+export default function Header({ isMobile }: { isMobile: boolean }) {
   return (
     <header className="header">
       <div className="header__inner">
@@ -58,47 +58,47 @@ export default function Header() {
           <LogoHondaRed width={178} />
         </Link>
 
-        {/* Search — desktop only */}
-        <div className="header__search">
-          <HeaderSearch />
-        </div>
-
-        {/* Actions — desktop only */}
-        <div className="header__actions">
-          {/* VIN */}
-          <button type="button" className="header__action-btn">
-            <span className="header__vin-badge">VIN</span>
-            <span className="header__action-label">Código VIN</span>
-          </button>
-
-          {/* Ubicación */}
-          <button type="button" className="header__action-btn">
-            <MapPinIcon />
-            <span className="header__action-label">Ubicación</span>
-          </button>
-
-          {/* Login */}
-          <Link href="/login" className="header__action-btn">
-            <UserIcon />
-            <span className="header__action-label">Login</span>
-          </Link>
-
-          {/* Carrito */}
-          <Link href="/carrito" className="header__action-btn">
-            <div className="header__cart">
-              <CartIcon />
-              <span className="header__cart-badge">2</span>
+        {isMobile ? (
+          /* Mobile: search icon + hamburger */
+          <HeaderMobileControls />
+        ) : (
+          <>
+            {/* Desktop: search bar */}
+            <div className="header__search">
+              <HeaderSearch />
             </div>
-            <span className="header__action-label">Ver carrito</span>
-          </Link>
-        </div>
 
-        {/* Mobile controls (search icon + hamburger) — hidden on desktop */}
-        <HeaderMobileControls />
+            {/* Desktop: actions */}
+            <div className="header__actions">
+              <button type="button" className="header__action-btn">
+                <span className="header__vin-badge">VIN</span>
+                <span className="header__action-label">Código VIN</span>
+              </button>
+
+              <button type="button" className="header__action-btn">
+                <MapPinIcon />
+                <span className="header__action-label">Ubicación</span>
+              </button>
+
+              <Link href="/login" className="header__action-btn">
+                <UserIcon />
+                <span className="header__action-label">Login</span>
+              </Link>
+
+              <Link href="/carrito" className="header__action-btn">
+                <div className="header__cart">
+                  <CartIcon />
+                  <span className="header__cart-badge">2</span>
+                </div>
+                <span className="header__action-label">Ver carrito</span>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
 
-      {/* Mobile search panel — outside header__inner to expand below the bar */}
-      <HeaderMobileSearch />
+      {/* Mobile search panel */}
+      {isMobile && <HeaderMobileSearch />}
     </header>
   );
 }

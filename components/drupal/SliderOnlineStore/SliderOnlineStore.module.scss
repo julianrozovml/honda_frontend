@@ -8,12 +8,17 @@
 // ── Section ───────────────────────────────────────────────────────────────────
 
 .section {
+  background-image: url("/bg/bg-form4.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width:    100%;
   overflow: hidden; // recorta el desborde derecho del slider
-  background: $color-primary-white;
   padding:    40px 0;
-
-  @include md { padding: 56px 0 76px; }
+  @include md {
+    background-size: contain; 
+    padding: 56px 0 76px;
+  }
 }
 
 // ── Header (safe-area) ────────────────────────────────────────────────────────
@@ -51,7 +56,7 @@
 
 .subtitle {
   font-family: $font-figtree;
-  font-size:   14px;
+  font-size:   16px;
   font-weight: $fw-regular;
   color:       $color-dark-400;
   margin:      0;

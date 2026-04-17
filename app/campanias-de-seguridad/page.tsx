@@ -26,10 +26,11 @@ async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
         id: "campaign-anti-wheelie-africa-twin",
         title: "Actualización software control Anti-Wheelie",
         date: "22 enero 2025",
-        imageSrc: "/images/image-moto.png",
+        imageSrc: "/images/image-card-moto.png",
         imageAlt: "Honda Africa Twin CRF 1100",
         productName: "Afrika Twin CRF 1100",
         models: ["2020", "2021", "2022", "2023", "2024"],
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tempor convallis sapien a efficitur. Nam id bibendum neque. Vestibulum a eros accumsan, commodo nisl at, varius urna.",
       },
     ];
   }
@@ -37,7 +38,7 @@ async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
 }
 
 export default async function CampaniasDeSeguridad() {
-  const isMobile = await getIsMobile(640);
+  const isMobile = await getIsMobile();
   return (
     <main className="campanias">
       <Breadcrumb
@@ -49,6 +50,7 @@ export default async function CampaniasDeSeguridad() {
       <VinSearchSection
         title="¿Quieres buscar campañas disponibles?"
         onSearch={searchCampaignsByVin}
+        isMobile={isMobile}
         tooltipImage={{
           src: "/images/vin-location.png",
           alt: "Ubicación del número VIN en la tarjeta de tránsito",
@@ -62,7 +64,7 @@ export default async function CampaniasDeSeguridad() {
         title="¿Qué es una campaña de seguridad?"
         description="Honda realiza campañas de seguridad para garantizar que tu moto funcione de manera segura y confiable. Estas campañas consisten en la revisión o reemplazo de ciertas piezas o componentes que, por medidas preventivas, podrían presentar algún riesgo con el tiempo."
         image={{
-          src: "/images/hero-campaign.webp",
+          src: "/images/hero-campaign.jpg",
           alt: "Motocicleta Honda campañas de seguridad",
         }}
       />
@@ -88,7 +90,7 @@ export default async function CampaniasDeSeguridad() {
           isMobile ? "¡Y listo! Así de fácil." : "¡Y listo!\nAsí de fácil."
         }
         image={{
-          src: "/images/campaign-steps.png",
+          src: "/images/campaign-steps.jpg",
           alt: "Técnico Honda revisando una motocicleta",
         }}
       />

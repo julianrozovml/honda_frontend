@@ -50,12 +50,10 @@
   // ── Search ─────────────────────────────────────────────────────────────────
 
   &__search {
-    display:   none;
+    display:   block;
     flex:      1;
     max-width: 560px;
     margin:    0 1rem;
-
-    @include md { display: block; }
 
     &-wrapper {
       position: relative;
@@ -98,13 +96,11 @@
   // ── Actions — desktop only ─────────────────────────────────────────────────
 
   &__actions {
-    display:     none;
+    display:     flex;
     align-items: center;
     gap:         20px;
     flex-shrink: 0;
     color:       $color-dark-500;
-
-    @include md { display: flex; }
   }
 
   &__action-btn {
@@ -187,8 +183,6 @@
     align-items: center;
     gap:         4px;
     margin-left: auto;
-
-    @include md { display: none; }
   }
 
   &__mobile-btn {
@@ -225,7 +219,6 @@
       border-top-color: $color-light-200;
     }
 
-    @include md { display: none; }
   }
 
   &__mobile-search-inner {

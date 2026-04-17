@@ -16,11 +16,8 @@
 
 
 
-  // Desktop nav — hidden on mobile
   &__nav {
-    display: none;
-
-    @include md { display: block; }
+    display: block;
   }
 
   // ── Desktop list ────────────────────────────────────────────────────────────
@@ -162,8 +159,6 @@
   inset:      0;
   background: rgba(0, 0, 0, 0.45);
   z-index:    200;
-
-  @include md { display: none; }
 }
 
 // ── Mobile drawer ─────────────────────────────────────────────────────────────
@@ -186,8 +181,6 @@
   &--open {
     transform: translateX(0);
   }
-
-  @include md { display: none; }
 }
 
 // Drawer header
