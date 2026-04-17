@@ -7,6 +7,7 @@ import { NavigationProvider } from "@/components/layouts/NavigationProvider/navi
 import "./globals.css";
 import "@/styles/globals.scss";
 import "swiper/css";
+import SubMenu from "@/components/layouts/SubMenu/MainMenu/sub-menu";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <NavigationProvider>
           <Header />
           <MainMenu />
+          <SubMenu/>
         </NavigationProvider>
         {children}
         <Footer />
