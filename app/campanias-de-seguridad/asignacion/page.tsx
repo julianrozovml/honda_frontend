@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Breadcrumb from "@/components/ui/Navigation/Breadcrumb/breadcrumb";
 import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import CampaignAssignmentForm from "@/components/drupal/CampaignAssignmentForm/campaign-assignment-form";
+import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
+import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
@@ -37,6 +39,7 @@ export default function AsignacionCampanias() {
         </p>
       </div>
       <CampaignAssignmentForm campaignId="campaign-anti-wheelie-africa-twin" />
+      <SliderOnlineStore tabs={MOCK_STORE_TABS} />
     </main>
   );
 }
