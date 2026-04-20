@@ -8,6 +8,7 @@ import { getIsMobile } from "@/lib/device";
 import "./globals.css";
 import "@/styles/globals.scss";
 import "swiper/css";
+import SubMenu from "@/components/layouts/SubMenu/MainMenu/sub-menu";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -44,6 +45,7 @@ export default async function RootLayout({
         <NavigationProvider>
           <Header isMobile={isMobile} />
           <MainMenu isMobile={isMobile} />
+          <SubMenu/>
         </NavigationProvider>
         {children}
         <Footer />
