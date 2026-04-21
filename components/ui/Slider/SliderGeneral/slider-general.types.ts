@@ -1,20 +1,22 @@
+export type TitleColor = "red" | "white" | "black";
+
 export interface SliderSlide {
-  /** URL de la imagen para desktop */
   imageSrc: string;
-  /** URL de la imagen para mobile (si no se provee, usa imageSrc) */
   imageSrcMobile?: string;
-  /** Texto alternativo de la imagen */
   imageAlt: string;
-  /** Enlace opcional al hacer clic en el slide */
   href?: string;
+  title?: string;
+  alignment?: "left" | "center" | "right";
+  titleColor?: TitleColor;
 }
 
 export interface SliderGeneralProps {
   slides: SliderSlide[];
-  /** Indica si el dispositivo es mobile (resuelto server-side con getIsMobile) */
   isMobile?: boolean;
-  /** Activa el autoplay (default: false) */
+  isSliderControlsInside?: boolean;
   autoplay?: boolean;
-  /** Intervalo en ms entre slides cuando autoplay está activo (default: 4000) */
   autoplayDelay?: number;
+  height?: string;
+  alignment?: "left" | "center" | "right";
+  titleColor?: TitleColor;
 }

@@ -104,14 +104,15 @@ export default async function CampaniasDeSeguridad() {
       </div>
       <SliderGeneral
         isMobile={isMobile}
+        height="400px"
         slides={[
           {
-            imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrc: "/images/section-finaciación.jpg",
             imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
-            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 1",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
           },
           {
-            imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrc: "/images/section-finaciación.jpg",
             imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
             imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
           },
