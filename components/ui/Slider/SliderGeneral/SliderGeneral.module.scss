@@ -6,31 +6,82 @@
 // ============================================================
 
 .wrapper {
-  margin: 35px 0 70px;
   width: 100%;
 }
 
 // ── Slide ─────────────────────────────────────────────────────
 
 .slide {
-  position:     relative;
-  width:        100%;
-  aspect-ratio: 4 / 3;     // mobile: imagen cuadrada/vertical
-
-  @include sm  { aspect-ratio: 16 / 8; }  // tablet pequeña
-  @include md  { aspect-ratio: 16 / 6; }  // tablet
-  @include lg  { aspect-ratio: 16 / 5; }  // desktop: banner panorámico
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .picture {
   position: absolute;
-  inset:    0;
+  inset: 0;
 }
 
 .image {
   object-fit: cover;
-  @include sm { object-fit: contain; }
 }
 
-// ── Controls (prev · dots · next) — generado por mixin ───────
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  @include safe-area;
+  padding: 24px 0px;
+}
+
+.title {
+  font-family: $font-figtree;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+
+  @include md {
+    font-size: 32px;
+  }
+}
+
+// Alignment
+.left .content {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.center .content {
+  justify-content: center;
+  text-align: center;
+}
+
+.right .content {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+// Title colors
+.title.red {
+  color: $color-primary-red;
+}
+
+.title.white {
+  color: $color-primary-white;
+}
+
+.title.black {
+  color: $color-primary-black;
+}
+
+// Controls
 @include slider-controls;
+
+.controlsInside .controls {
+  padding: 0;
+  z-index: 10;
+  position: relative;
+  top: -40;
+}

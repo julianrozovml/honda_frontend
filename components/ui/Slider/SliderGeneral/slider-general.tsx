@@ -11,24 +11,27 @@ import ChevronLeft from "@/components/ui/Icons/Chevron/ChevronLeft/chevron-left"
 import ChevronRight from "@/components/ui/Icons/Chevron/ChevronRight/chevron-right";
 import styles from "./SliderGeneral.module.scss";
 
-// swiper/css se importa globalmente en app/layout.tsx
-
-// ── Component ─────────────────────────────────────────────────────────────────
-
 export default function SliderGeneral({
   slides,
   isMobile = false,
   autoplay = false,
   autoplayDelay = 4000,
+  height,
+  alignment = "left",
+  titleColor,
+  isSliderControlsInside = false,
 }: SliderGeneralProps) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const hasMultiple = slides.length > 1;
 
+  const wrapperStyle = height ? { height } : undefined;
+
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${styles[alignment]} ${isSliderControlsInside ? styles.controlsInside : ""}`} style={wrapperStyle}>
       <Swiper
+        style={wrapperStyle}
         onSwiper={setSwiper}
         onSlideChange={(s) => setActiveIndex(s.realIndex)}
         modules={autoplay ? [Autoplay] : []}
@@ -40,13 +43,12 @@ export default function SliderGeneral({
         loop={hasMultiple}
       >
         {slides.map((slide, i) => {
-          const src =
-            isMobile && slide.imageSrcMobile
-              ? slide.imageSrcMobile
-              : slide.imageSrc;
+          const src = isMobile && slide.imageSrcMobile ? slide.imageSrcMobile : slide.imageSrc;
+          const slideAlignment = slide.alignment || alignment;
+          const slideTitleColor = slide.titleColor || titleColor;
 
           const content = (
-            <div className={styles.slide}>
+            <div className={`${styles.slide} ${styles[slideAlignment]}`} style={height ? { height: "100%" } : undefined}>
               <Image
                 src={src}
                 alt={slide.imageAlt}
@@ -55,6 +57,13 @@ export default function SliderGeneral({
                 priority={i === 0}
                 sizes="100vw"
               />
+              {slide.title && (
+                <div className={`${styles.content} ${styles[slideAlignment]}`}>
+                  <h1 className={`${styles.title} ${slideTitleColor ? styles[slideTitleColor] : styles.white}`}>
+                    {slide.title}
+                  </h1>
+                </div>
+              )}
             </div>
           );
 
@@ -73,7 +82,7 @@ export default function SliderGeneral({
       </Swiper>
 
       {hasMultiple && (
-        <div className={styles.controls}>
+        <div className={`${styles.controls} ${isSliderControlsInside ? styles.controlsInside : ""}`}>
           <button
             type="button"
             className={styles.navBtn}
@@ -91,12 +100,7 @@ export default function SliderGeneral({
                 role="tab"
                 aria-selected={i === activeIndex}
                 aria-label={`Ir al slide ${i + 1}`}
-                className={[
-                  styles.dot,
-                  i === activeIndex ? styles.dotActive : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
+                className={[styles.dot, i === activeIndex ? styles.dotActive : ""].filter(Boolean).join(" ")}
                 onClick={() => swiper?.slideToLoop(i)}
               />
             ))}

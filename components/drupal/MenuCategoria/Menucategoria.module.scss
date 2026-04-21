@@ -1,0 +1,197 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+.mobileWrapper {
+  width: 100%;
+}
+
+.mobileHeader {
+  background-color: $color-dark-800;
+  height: 100%;
+}
+
+.mobileHeaderContainer{
+  @include safe-area;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalHeaderContainer{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.listContent svg {
+  color: $color-primary-white;
+}
+
+.modalHeaderContainer .svg{
+  color: $color-primary-white;
+}
+
+.mobileTitle {
+  font-family: $font-figtree;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-primary-white;
+}
+
+.ghostBtn {
+  color: $color-primary-white;
+  padding: 12px;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+}
+
+.modal {
+  @include safe-area;
+  background-color: $color-dark-800;
+  border-radius: 16px;
+  padding: 20px 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+  margin: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h3 {
+    font-family: $font-figtree;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-primary-white;
+    margin: 0;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: $color-primary-white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.modalList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: $color-primary-white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.modalItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  text-align: left;
+
+  &.active {
+    border-color: $color-primary-red;
+  }
+
+  span {
+    font-family: $font-figtree;
+    font-size: 14px;
+    color: $color-primary-white;
+  }
+
+  svg {
+    color: $color-primary-white;
+  }
+}
+
+.listContent{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.desktopWrapper {
+  width: 100%;
+}
+
+.containerdesktop{
+  min-height: 48px;
+  background-color: $color-dark-800;
+  align-content: flex-end;
+}
+.desktop {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  @include safe-area;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  white-space: nowrap;
+
+  &.active {
+    border-bottom-color: $color-primary-red;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: $font-figtree;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-primary-white;
+  margin: 0;
+}
+
+.container{
+  padding: 30px 0;
+
+  @include m {
+    padding: 50px 0;
+  }
+  h2{
+    margin: 0;
+  }
+  @include safe-area;
+}
