@@ -7,6 +7,9 @@ export default function Home() {
       <Link href="/campanias-de-seguridad">
         <Button label="Campañas de seguridad" />
       </Link>
+      <Link href="/plp">
+        <Button label="PLP" />
+      </Link>
     </div>
   );
 }
