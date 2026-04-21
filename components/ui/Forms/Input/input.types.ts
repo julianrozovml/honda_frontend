@@ -1,6 +1,7 @@
 export interface InputProps {
   value: string;
   onChange: (value: string) => void;
+  onBlur?: () => void;
   type?: "text" | "email" | "password" | "tel" | "number" | "url";
   name?: string;
   id?: string;

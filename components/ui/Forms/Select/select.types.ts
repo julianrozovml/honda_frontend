@@ -7,6 +7,7 @@ export interface SelectProps {
   options: SelectOption[];
   value: string;
   onChange: (value: string) => void;
+  onBlur?: () => void;
   name?: string;
   id?: string;
   label?: string;

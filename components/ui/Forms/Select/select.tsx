@@ -8,6 +8,7 @@ export default function Select({
   options,
   value,
   onChange,
+  onBlur,
   name,
   id,
   label,
@@ -29,6 +30,7 @@ export default function Select({
           name={name}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onBlur={onBlur}
           disabled={disabled}
           className={[styles.select, error ? styles.hasError : ""].filter(Boolean).join(" ")}
         >

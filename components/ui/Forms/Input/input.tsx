@@ -6,6 +6,7 @@ import styles from "./Input.module.scss";
 export default function Input({
   value,
   onChange,
+  onBlur,
   type = "text",
   name,
   id,
@@ -28,6 +29,7 @@ export default function Input({
         name={name}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
         placeholder={placeholder}
         disabled={disabled}
         className={[styles.input, error ? styles.hasError : ""]

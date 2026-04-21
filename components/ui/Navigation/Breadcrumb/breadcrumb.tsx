@@ -35,7 +35,9 @@ export default function AppBreadcrumb({ items }: BreadcrumbProps) {
                   </BreadcrumbItem>
 
                   {!isLast && (
-                    <BreadcrumbSeparator className={styles.separator}>/</BreadcrumbSeparator>
+                    <BreadcrumbSeparator className={styles.separator}>
+                      /
+                    </BreadcrumbSeparator>
                   )}
                 </React.Fragment>
               );
