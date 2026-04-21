@@ -216,7 +216,7 @@ export default function CampaignAssignmentForm({
         <Button
           type="submit"
           label={loading ? "Enviando…" : "Enviar solicitud"}
-          variant="secondary"
+          variant={canSubmit ? "primary" : "secondary"}
           disabled={!canSubmit || loading}
         />
       </div>
