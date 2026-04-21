@@ -7,9 +7,7 @@
   position: relative;
   margin: 0;
 
-  @include md {
-    @include safe-area;
-  }
+
 
   // ── NAV LIST ──────────────────────────────────────────────
   &__list {
@@ -26,7 +24,7 @@
     flex: 1;
     min-width: 0;
     margin: 0;
-    background: #CC0000;
+    background: $color-primary-red;
 
     @include md {
       width: auto;
@@ -36,6 +34,9 @@
 
     &:first-of-type {
       background: $color-primary-red;
+      margin: 0;
+      padding-left: 3%;
+     
     }
 
     &:nth-of-type(2n) {
@@ -53,7 +54,7 @@
         display: block;
       }
     }
-
+    
     &::after {
       content: "";
       background-color: inherit;
@@ -75,7 +76,10 @@
     &--active > .sub-menu__link {
       color: $color-primary-red;
       font-weight: $fw-bold;
+      
     }
+
+   
   }
 
   // ── LINK ─────────────────────────────────────────────────
@@ -119,7 +123,7 @@
         display: block;
         width: 100%;
         background: $color-primary-red;
-
+     
         .sub-menu__link {
           justify-content: space-between;
           padding: 14px 16px;
@@ -146,7 +150,7 @@
     flex-direction: column;
     gap: 0;
     padding: 0;
-
+    z-index:99;
     background: #fff;
     border-radius: 0;
     box-shadow: none;
@@ -182,9 +186,10 @@
     opacity: 1;
     pointer-events: auto;
     max-height: 1000px;
-
+       
     @include md {
       transform: translateX(-50%) translateY(0);
+      
     }
   }
 
