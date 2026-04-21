@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import MenuCategoryMotorbike from "@/components/drupal/MenuCategoryMotorbike/menu-category-motorbike";
-import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
+import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
+import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
 import { getIsMobile } from "@/lib/device";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default async function PLP() {
             imageAlt: "Banner motorcycles",
             alignment: "left",
             titleColor: "white",
-          }
+          },
         ]}
       />
       <MenuCategoryMotorbike
@@ -34,34 +35,56 @@ export default async function PLP() {
           {
             id: "todas",
             title: "Todas",
-            description: "Todas nuestras motos Honda"
+            description: "Todas nuestras motos Honda",
           },
           {
             id: "deportivas",
             title: "Deportivas",
             icon: "/icons/icon-moto-wht.svg",
-            description: "Motos deportivas"
+            description: "Motos deportivas",
           },
           {
             id: "cruiser",
             title: "Cruiser",
             icon: "/icons/icon-moto-wht.svg",
-            description: "Motos cruiser"
+            description: "Motos cruiser",
           },
           {
             id: "electricas",
             title: "Eléctricas",
             icon: "/icons/icon-moto-wht.svg",
-            description: "Motos eléctricas"
+            description: "Motos eléctricas",
           },
           {
             id: "scooter",
             title: "Scooter",
             icon: "/icons/icon-moto-wht.svg",
-            description: "Motos scooter"
-          }
+            description: "Motos scooter",
+          },
         ]}
       />
+      <SliderGeneral
+        isMobile={isMobile}
+        height="400px"
+        slides={[
+          {
+            imageSrc: "/images/section-finaciación.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
+          },
+          {
+            imageSrc: "/images/section-finaciación.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 2",
+          },
+          {
+            imageSrc: "/images/slider-pro-honda.jpg",
+            imageSrcMobile: "/images/slider-pro-honda-mobile.jpg",
+            imageAlt: "Dale poder a tu pasión — Pro Honda lubricante 3",
+          },
+        ]}
+      />
+      <SliderOnlineStore tabs={MOCK_STORE_TABS} />
     </main>
   );
 }
