@@ -8,16 +8,16 @@
 // ── Nav bar ───────────────────────────────────────────────────────────────────
 
 .main-menu {
+  position:         sticky;
+  top:              67px;
+  z-index:          49;
   width:            100%;
   background-color: $color-primary-white;
-  border-bottom: 1px solid $color-primary-red;
-  margin: auto;
-  @include safe-area;
-
-
+  border-bottom:    1px solid $color-primary-red;
 
   &__nav {
     display: block;
+    @include safe-area;
   }
 
   // ── Desktop list ────────────────────────────────────────────────────────────

@@ -2,11 +2,16 @@
 @use "@/styles/mixins" as *;
 
 .sub-menu {
-  width: 100%;
-  background-color: $color-primary-white;
-  position: relative;
-  margin: 0;
+  position:         fixed;
+  top:              68px; // 66px header + 48px main menu
+  z-index:          999;
+  width:            100%;
+  background-color: transparent;
+  margin:           0;
 
+  @include lg {
+    top: 116px;
+  }
 
 
   // ── NAV LIST ──────────────────────────────────────────────
