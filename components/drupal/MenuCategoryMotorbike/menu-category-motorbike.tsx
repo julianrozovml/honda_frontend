@@ -5,10 +5,10 @@ import ChevronRightIcon from "@/components/ui/Icons/Chevron/ChevronRight/chevron
 import Image from "next/image";
 import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import Button from "@/components/ui/Buttons/Button/button";
-import type { MenuCategoriaProps } from "./menu-categoria.types";
-import styles from "./Menucategoria.module.scss";
+import type { MenuCategoryMotorbikeProps } from "./menu-category-motorbike.types";
+import styles from "./MenuCategoryMotorbike.module.scss";
 
-export default function MenuCategoria({ category, isMobile, onCategoryChange }: MenuCategoriaProps) {
+export default function MenuCategoryMotorbike({ category, isMobile, onCategoryChange }: MenuCategoryMotorbikeProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -105,7 +105,7 @@ export default function MenuCategoria({ category, isMobile, onCategoryChange }: 
 
   return (
     <div className={styles.desktopWrapper}>
-      <div className={styles.containerdesktop}>
+      <div className={styles.containerDesktop}>
         <div className={styles.desktop}>
           {category.map((item, i) => (
             <button

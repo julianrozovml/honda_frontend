@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
-import MenuCategoria from "@/components/drupal/MenuCategoria/menu-category";
+import MenuCategoryMotorbike from "@/components/drupal/MenuCategoryMotorbike/menu-category-motorbike";
 import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import { getIsMobile } from "@/lib/device";
 
@@ -28,7 +28,7 @@ export default async function PLP() {
           }
         ]}
       />
-      <MenuCategoria
+      <MenuCategoryMotorbike
         isMobile={isMobile}
         category={[
           {

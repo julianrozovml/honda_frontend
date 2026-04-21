@@ -5,7 +5,7 @@ export interface Category {
   description: string;
 }
 
-export interface MenuCategoriaProps {
+export interface MenuCategoryMotorbikeProps {
   category: Category[];
   isMobile: boolean;
   onCategoryChange?: (category: Category) => void;
