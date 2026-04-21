@@ -16,10 +16,10 @@
   transform: translate(-50%, -50%);
   z-index: 101;
   background: #fff;
-  border-radius: 8px;
-  padding: 32px 40px;
+  border-radius: 12px;
+  padding: 20px 25px;
   width: calc(100% - 32px);
-  max-width: 560px;
+  max-width: 475px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -29,33 +29,35 @@
   &:focus {
     outline: none;
   }
+
+  > :last-child {
+    align-self: flex-end;
+  }
 }
 
-.iconWrapper {
+.header {
   display: flex;
+  border-bottom: 1px solid $color-light-300;
   align-items: center;
-  justify-content: center;
-}
-
-.icon {
-  width: 28px;
-  height: 28px;
-  color: #cc0000;
+  gap: 12px;
+  padding: 0 0 5px;
+  width: 100%;
 }
 
 .title {
   font-family: $font-figtree;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: #1a1a1a;
   margin: 0;
 }
 
 .description {
+  border-bottom: 1px solid $color-light-300;
   font-family: $font-figtree;
-  font-size: 14px;
-  color: #555;
-  margin: 0;
+  font-size: 16px;
+  color: $color-pure-black;
+  padding: 5px 0 18px;
   line-height: 1.5;
 }
 
