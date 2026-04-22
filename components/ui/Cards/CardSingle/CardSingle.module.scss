@@ -1,0 +1,149 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// CARD SINGLE — CSS Module
+// ============================================================
+
+.card {
+  background:     $color-primary-white;
+  border:         1px solid $color-light-200;
+  border-radius: 16px;
+  display:        flex;
+  flex-direction: column;
+  width:          100%;
+  height:         100%;
+
+  max-width: 306px;
+  min-height: 384px
+}
+
+
+// ── Logo ────────────────────────────────────────────────────
+
+.logo{
+
+  margin: auto;
+}
+
+// ── Imagen ────────────────────────────────────────────────────
+
+
+.image {
+  object-fit: contain;
+
+}
+
+// ── Body ──────────────────────────────────────────────────────
+
+.body {
+  display:        flex;
+  flex-direction: column;
+  flex:           1;
+  padding:        16px;
+  justify-content: flex-end;
+}
+
+// ── Nombre ───────────────────────────────────────────────────
+
+.name {
+  font-family: $font-figtree;
+  font-size:   16px;
+  font-weight: $fw-bold;
+  color:       $color-dark-700;
+  line-height: 1.4;
+  margin:0 auto;
+  text-align: center;
+  width: 75%;
+}
+
+// ── Precios ───────────────────────────────────────────────────
+
+.pricing {
+  display:     flex;
+  border-top: 1px solid $color-light-200;
+  justify-content: center;
+  align-items: baseline;
+  gap:         8px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  padding-top: 8px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.price {
+  font-family: $font-figtree;
+  font-size:   20px;
+  font-weight: $fw-bold;
+  color:$color-dark-400;
+}
+
+.originalPrice {
+  font-family:     $font-figtree;
+  font-size:       16.6px;
+  font-weight:     $fw-regular;
+  color:           $color-dark-400;
+  position: relative;
+
+  &:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1.66px solid $color-primary-red;
+
+  
+  -webkit-transform:rotate(-5deg);
+  -moz-transform:rotate(-5deg);
+  -ms-transform:rotate(-5deg);
+  -o-transform:rotate(-5deg);
+  transform:rotate(-5deg);
+}
+
+}
+
+/*
+Source - https://stackoverflow.com/a/14593540
+Posted by Bojangles, modified by community. See post 'Timeline' for change history
+Retrieved 2026-04-22, License - CC BY-SA 4.0
+*/
+
+
+
+// ── Contenedor de los botones ─────────────────────────────────────────────
+.btnWrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+
+  a{
+    padding: 12px 36px;
+  }
+}
+
+
+.btnVer{
+   color: $color-primary-black;
+
+   &:hover{
+    color: $color-primary-white;
+    border-color: $color-primary-black  ;
+    background-color: $color-primary-black  ;
+  }
+  
+}
+
+.btnCotizar{
+  color: $color-primary-red;
+  border-color: $color-primary-red;
+
+  &:hover{
+    color: $color-primary-white;
+    background-color: $color-primary-red;
+  }
+}
+
+
