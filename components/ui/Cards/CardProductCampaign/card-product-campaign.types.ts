@@ -15,6 +15,4 @@ export interface CardProductCampaignProps {
   onShare?: () => void;
   /** Descripción del producto */
   description: string;
-  /** Indica si es vista mobile */
-  isMobile?: boolean;
 }

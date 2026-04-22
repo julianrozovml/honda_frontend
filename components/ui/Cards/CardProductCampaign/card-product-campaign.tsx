@@ -12,7 +12,6 @@ export default function CardProductCampaign({
   models,
   description,
   onShare,
-  isMobile = false,
 }: CardProductCampaignProps) {
   return (
     <article className={styles.card}>
@@ -42,7 +41,7 @@ export default function CardProductCampaign({
         </p>
       </div>
 
-      {!isMobile && <p className={styles.description}>{description}</p>}
+      <p className={styles.description}>{description}</p>
 
       <footer className={styles.footer}>
         <button

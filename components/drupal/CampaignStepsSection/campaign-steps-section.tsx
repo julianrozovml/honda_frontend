@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getIsMobile } from "@/lib/device";
 import type { CampaignStepsSectionProps } from "./campaign-steps-section.types";
 import styles from "./CampaignStepsSection.module.scss";
 
@@ -31,30 +30,26 @@ function StepDescription({
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export async function CampaignStepsSection({
+export function CampaignStepsSection({
   title,
   steps,
   closingText,
   image,
 }: CampaignStepsSectionProps) {
-  const mobile = await getIsMobile(640);
-
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        {/* Left — image (desktop only) */}
-        {!mobile && (
-          <div className={styles.imageWrapper}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className={styles.image}
-              sizes="50vw"
-              priority
-            />
-          </div>
-        )}
+        {/* Left — image (hidden on mobile via CSS) */}
+        <div className={styles.imageWrapper}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            className={styles.image}
+            sizes="50vw"
+            priority
+          />
+        </div>
 
         {/* Right — content */}
         <div className={styles.content}>

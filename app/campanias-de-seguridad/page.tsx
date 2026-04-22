@@ -8,8 +8,9 @@ import VideoGeneral from "@/components/ui/Media/Video/video";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
 import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
-import { getIsMobile } from "@/lib/device";
 import styles from "./page.module.scss";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Campañas de Seguridad | Honda Motos Colombia",
@@ -37,8 +38,7 @@ async function searchCampaignsByVin(vin: string): Promise<Campaign[]> {
   return [];
 }
 
-export default async function CampaniasDeSeguridad() {
-  const isMobile = await getIsMobile();
+export default function CampaniasDeSeguridad() {
   return (
     <main className="campanias">
       <Breadcrumb
@@ -50,7 +50,6 @@ export default async function CampaniasDeSeguridad() {
       <VinSearchSection
         title="¿Quieres buscar campañas disponibles?"
         onSearch={searchCampaignsByVin}
-        isMobile={isMobile}
         tooltipImage={{
           src: "/images/vin-location.png",
           alt: "Ubicación del número VIN en la tarjeta de tránsito",
@@ -86,9 +85,7 @@ export default async function CampaniasDeSeguridad() {
               "Cuando te contacten, acércate a tu concesionario autorizado para realizar, sin ningún costo, el reemplazo del repuesto.",
           },
         ]}
-        closingText={
-          isMobile ? "¡Y listo! Así de fácil." : "¡Y listo!\nAsí de fácil."
-        }
+        closingText="¡Y listo!\nAsí de fácil."
         image={{
           src: "/images/campaign-steps.jpg",
           alt: "Técnico Honda revisando una motocicleta",
@@ -103,7 +100,6 @@ export default async function CampaniasDeSeguridad() {
         />
       </div>
       <SliderGeneral
-        isMobile={isMobile}
         height="400px"
         slides={[
           {

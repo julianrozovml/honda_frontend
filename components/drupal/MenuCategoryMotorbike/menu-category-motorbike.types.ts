@@ -7,6 +7,5 @@ export interface Category {
 
 export interface MenuCategoryMotorbikeProps {
   category: Category[];
-  isMobile: boolean;
   onCategoryChange?: (category: Category) => void;
 }

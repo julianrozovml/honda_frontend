@@ -5,10 +5,12 @@ import ChevronRightIcon from "@/components/ui/Icons/Chevron/ChevronRight/chevron
 import Image from "next/image";
 import TitleOutlineLeft from "@/components/ui/Global/TitleOutlineLeft/title-outline-left";
 import Button from "@/components/ui/Buttons/Button/button";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import type { MenuCategoryMotorbikeProps } from "./menu-category-motorbike.types";
 import styles from "./MenuCategoryMotorbike.module.scss";
 
-export default function MenuCategoryMotorbike({ category, isMobile, onCategoryChange }: MenuCategoryMotorbikeProps) {
+export default function MenuCategoryMotorbike({ category, onCategoryChange }: MenuCategoryMotorbikeProps) {
+  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

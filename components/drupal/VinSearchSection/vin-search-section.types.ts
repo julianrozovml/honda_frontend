@@ -50,14 +50,10 @@ export interface VinSearchSectionProps {
 
   /** Callback when user submits a VIN — returns campaigns or empty array */
   onSearch: (vin: string) => Promise<Campaign[]>;
-
-  /** Indica si es vista mobile */
-  isMobile?: boolean;
 }
 
 export interface VinResultsProps {
   vin: string;
   campaigns: Campaign[];
   status: SearchStatus;
-  isMobile?: boolean;
 }

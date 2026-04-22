@@ -9,11 +9,11 @@ import Link from "next/link";
 import type { SliderGeneralProps } from "./slider-general.types";
 import ChevronLeft from "@/components/ui/Icons/Chevron/ChevronLeft/chevron-left";
 import ChevronRight from "@/components/ui/Icons/Chevron/ChevronRight/chevron-right";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import styles from "./SliderGeneral.module.scss";
 
 export default function SliderGeneral({
   slides,
-  isMobile = false,
   autoplay = false,
   autoplayDelay = 4000,
   height,
@@ -21,6 +21,7 @@ export default function SliderGeneral({
   titleColor,
   isSliderControlsInside = false,
 }: SliderGeneralProps) {
+  const isMobile = useIsMobile();
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 

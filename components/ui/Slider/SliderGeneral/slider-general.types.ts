@@ -12,7 +12,6 @@ export interface SliderSlide {
 
 export interface SliderGeneralProps {
   slides: SliderSlide[];
-  isMobile?: boolean;
   isSliderControlsInside?: boolean;
   autoplay?: boolean;
   autoplayDelay?: number;

@@ -3,19 +3,18 @@ import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import MenuCategoryMotorbike from "@/components/drupal/MenuCategoryMotorbike/menu-category-motorbike";
 import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
 import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
-import { getIsMobile } from "@/lib/device";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "PLP | Honda Motos Colombia",
   description: "Página de productos Honda Motos Colombia",
 };
 
-export default async function PLP() {
-  const isMobile = await getIsMobile();
+export default function PLP() {
   return (
     <main>
       <SliderGeneral
-        isMobile={isMobile}
         height="300px"
         isSliderControlsInside={true}
         slides={[
@@ -30,7 +29,6 @@ export default async function PLP() {
         ]}
       />
       <MenuCategoryMotorbike
-        isMobile={isMobile}
         category={[
           {
             id: "todas",
@@ -64,7 +62,6 @@ export default async function PLP() {
         ]}
       />
       <SliderGeneral
-        isMobile={isMobile}
         height="400px"
         slides={[
           {
