@@ -5,7 +5,7 @@ export interface ButtonProps {
   icon?: ReactNode;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "outline" | "outline-border-right" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "outline-border-right" | "outline-pill" | "ghost";
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   className?: string;

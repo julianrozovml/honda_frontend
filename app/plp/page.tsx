@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import MenuCategoryMotorbike from "@/components/drupal/MenuCategoryMotorbike/menu-category-motorbike";
+import PLPFilters from "@/components/drupal/PLPFilters/plp-filters";
 import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
 import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
 
@@ -61,6 +62,7 @@ export default function PLP() {
           },
         ]}
       />
+      <PLPFilters />
       <SliderGeneral
         height="400px"
         slides={[

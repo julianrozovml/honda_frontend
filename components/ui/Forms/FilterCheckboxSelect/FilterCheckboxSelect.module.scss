@@ -1,0 +1,157 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+// ============================================================
+// FILTER CHECKBOX SELECT — CSS Module
+// ============================================================
+
+$checkbox-size: 16px;
+
+.wrapper {
+  position: relative;
+  width:     100%;
+}
+
+// ── Trigger button ────────────────────────────────────────────────────────────
+
+.trigger {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             8px;
+  width:           100%;
+  height:          42px;
+  padding:         0 14px 0 16px;
+  background:      $color-primary-white;
+  border:          1px solid $color-light-300;
+  border-radius:   8px;
+  font-family:     $font-figtree;
+  font-size:       16px;
+  font-weight:     $fw-regular;
+  color:           $color-primary-black;
+  cursor:          pointer;
+  transition:      border-color 0.2s ease;
+
+  &:hover { border-color: $color-dark-400; }
+}
+
+.triggerOpen {
+  border-color: $color-primary-red;
+}
+
+.triggerActive {
+  border-color: $color-primary-red;
+}
+
+.triggerLabel {
+  flex:          1;
+  text-align:    left;
+  white-space:   nowrap;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+}
+
+.chevron {
+  display:    flex;
+  flex-shrink: 0;
+  color:       $color-dark-400;
+  transition:  transform 0.2s ease;
+
+  svg {
+    width:  24px;
+    height: 24px;
+    stroke: currentColor;
+  }
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+// ── Dropdown panel ────────────────────────────────────────────────────────────
+
+.dropdown {
+  position:         absolute;
+  top:              calc(100% + 4px);
+  left:             0;
+  width:            max-content;
+  min-width:        100%;
+  background:       $color-primary-white;
+  border:           1px solid $color-light-200;
+  border-radius:    6px;
+  box-shadow:       0 4px 16px rgba(0, 0, 0, 0.10);
+  z-index:          50;
+  list-style:       none;
+  margin:           0;
+  padding:          6px 0;
+  overflow:         hidden;
+}
+
+// ── Option row ────────────────────────────────────────────────────────────────
+
+.option {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  padding:     10px 14px;
+  cursor:      pointer;
+  transition:  background-color 0.15s ease;
+
+  &:hover {
+    background-color: $color-light-75;
+  }
+}
+
+.optionChecked {
+  // background-color: $color-secondary-10;
+
+  &:hover {
+    background-color: $color-light-200;
+  }
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity:  0;
+  width:    0;
+  height:   0;
+  pointer-events: none;
+}
+
+// ── Custom checkbox ───────────────────────────────────────────────────────────
+
+.checkbox {
+  flex-shrink:   0;
+  width:         $checkbox-size;
+  height:        $checkbox-size;
+  border:        1.5px solid $color-light-400;
+  border-radius: 3px;
+  background:    $color-primary-white;
+  transition:    border-color 0.15s ease, background-color 0.15s ease;
+  position:      relative;
+}
+
+.checkboxChecked {
+  border-color:     $color-primary-red;
+  background-color: $color-primary-red;
+
+  &::after {
+    content:      "";
+    position:     absolute;
+    inset:        0;
+    margin:       auto;
+    width:        9px;
+    height:       5px;
+    border-left:  2px solid $color-primary-white;
+    border-bottom: 2px solid $color-primary-white;
+    transform:    translateY(-1px) rotate(-45deg);
+  }
+}
+
+.optionLabel {
+  font-family: $font-figtree;
+  font-size:   13px;
+  font-weight: $fw-regular;
+  color:       $color-dark-700;
+  line-height: 1;
+}

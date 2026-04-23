@@ -1,0 +1,398 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+// ============================================================
+// PLP FILTERS
+// ============================================================
+
+$checkbox-size: 16px;
+
+.section {
+  width: 100%;
+}
+
+.inner {
+  @include safe-area;
+  margin: auto;
+  padding-top:    20px;
+  padding-bottom: 16px;
+}
+
+.heading {
+  font-family:   $font-figtree;
+  font-size:     18px;
+  font-weight:   $fw-bold;
+  color:         $color-primary-black;
+  margin:        0 0 16px;
+}
+
+// ── Desktop / Mobile visibility ───────────────────────────────────────────────
+
+.desktop {
+  display: none;
+
+  @include md { display: block; }
+}
+
+.mobile {
+  display: block;
+
+  @include md { display: none; }
+}
+
+// ── Desktop filter row ────────────────────────────────────────────────────────
+
+.filtersRow {
+  display:        flex;
+  align-items:    flex-end;
+  gap:            16px;
+  flex-wrap:      wrap;
+  padding:        10px 0;
+  border-radius:  8px;
+
+  @include lg { flex-wrap: nowrap; gap: 20px; }
+}
+
+.group {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+  min-width:      140px;
+  flex:           1;
+}
+
+.groupTitle {
+  font-family: $font-figtree;
+  font-size:   16px;
+  font-weight: $fw-bold;
+  color:       $color-pure-black;
+  margin:      0;
+}
+
+// ── Checkbox list (price + mobile drawer) ─────────────────────────────────────
+
+.checkList {
+  list-style: none;
+  margin:     0;
+  padding:    0;
+  display:    flex;
+  flex-direction: column;
+  gap:        2px;
+}
+
+.checkItem {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+  padding:     6px 4px;
+  cursor:      pointer;
+  border-radius: 4px;
+  transition:  background-color 0.15s ease;
+
+  &:hover { background-color: $color-light-200; }
+}
+
+.checkItemActive {
+  .checkLabel { color: $color-primary-red; font-weight: $fw-medium; }
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity:  0;
+  width:    0;
+  height:   0;
+  pointer-events: none;
+}
+
+.checkBox {
+  flex-shrink:   0;
+  width:         $checkbox-size;
+  height:        $checkbox-size;
+  border:        1.5px solid $color-light-400;
+  border-radius: 3px;
+  background:    $color-primary-white;
+  position:      relative;
+  transition:    border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.checkBoxChecked {
+  border-color:     $color-primary-red;
+  background-color: $color-primary-red;
+
+  &::after {
+    content:       "";
+    position:      absolute;
+    inset:         0;
+    margin:        auto;
+    width:         9px;
+    height:        5px;
+    border-left:   2px solid $color-primary-white;
+    border-bottom: 2px solid $color-primary-white;
+    transform:     translateY(-1px) rotate(-45deg);
+  }
+}
+
+.checkLabel {
+  font-family: $font-figtree;
+  font-size:   13px;
+  font-weight: $fw-regular;
+  color:       $color-dark-700;
+  line-height: 1.3;
+  transition:  color 0.15s ease;
+}
+
+// ── Actions ───────────────────────────────────────────────────────────────────
+
+.actions {
+  display:         flex;
+  flex-direction:  row;
+  align-items:     flex-end;
+  gap:             8px;
+  margin-left:     auto;
+  align-self:      flex-end;
+}
+
+// ── Desktop bottom row (tags + ordenar) ──────────────────────────────────────
+
+.desktopBottom {
+  display:         flex;
+  align-items:     flex-start;
+  justify-content: space-between;
+  gap:             16px;
+  margin-top: 25px;
+}
+
+// ── Ordenar por ───────────────────────────────────────────────────────────────
+
+.ordenarGroup {
+  display:        flex;
+  flex-direction: column;
+  gap:            8px;
+  min-width:      160px;
+  flex-shrink:    0;
+  margin-left:    auto;
+}
+
+.ordenarSelect {
+  position: relative;
+  display:  flex;
+  align-items: center;
+
+  svg {
+    position:       absolute;
+    right:          14px;
+    top:            50%;
+    transform:      translateY(-50%);
+    pointer-events: none;
+    color:          currentColor;
+  }
+}
+
+.ordenarNative {
+  width:           100%;
+  padding:         9px 40px 9px 16px;
+  font-family:     $font-figtree;
+  font-size:       13px;
+  font-weight:     $fw-semibold;
+  color:           $color-primary-black;
+  background:      $color-primary-white;
+  border:          1px solid $color-primary-black;
+  border-radius:   8px;
+  appearance:      none;
+  cursor:          pointer;
+  transition:      border-color 0.2s ease, color 0.2s ease;
+
+  &:hover  { border-color: $color-primary-red; color: $color-primary-red; }
+  &:focus  { outline: none; border-color: $color-primary-red; color: $color-primary-red; }
+}
+
+// ── Filter tags ───────────────────────────────────────────────────────────────
+
+.tags {
+  display:     flex;
+  flex-wrap:   wrap;
+  gap:         8px;
+  list-style:  none;
+  margin:      0;
+  padding:     12px 0;
+}
+
+.tag {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             6px;
+  padding:         4px 10px;
+  background:      $color-light-200;
+  border-radius:   20px;
+  font-family:     $font-figtree;
+  font-size:       12px;
+  font-weight:     $fw-bold;
+  color:           $color-dark-500;
+  cursor:          pointer;
+  transition:      background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    color: $color-primary-white;
+    background-color: $color-primary-black;
+  }
+
+  svg { flex-shrink: 0; }
+}
+
+// ── Mobile bar ────────────────────────────────────────────────────────────────
+
+.mobileBar {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             12px;
+  padding:         12px 0;
+  border-top:      1px solid $color-light-200;
+  border-bottom:   1px solid $color-light-200;
+}
+
+.mobileFilterBtn {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             6px;
+  padding:         8px 16px;
+  background:      $color-primary-white;
+  border:          1px solid $color-light-300;
+  border-radius:   4px;
+  font-family:     $font-figtree;
+  font-size:       13px;
+  font-weight:     $fw-medium;
+  color:           $color-dark-600;
+  cursor:          pointer;
+  transition:      border-color 0.2s ease, color 0.2s ease;
+
+  &:hover { border-color: $color-dark-400; }
+}
+
+.mobileFilterBtnActive {
+  border-color: $color-primary-red;
+  color:        $color-primary-red;
+}
+
+.filterCount {
+  display:          inline-flex;
+  align-items:      center;
+  justify-content:  center;
+  width:            18px;
+  height:           18px;
+  background:       $color-primary-red;
+  color:            $color-primary-white;
+  border-radius:    50%;
+  font-size:        10px;
+  font-weight:      $fw-bold;
+  line-height:      1;
+}
+
+// ── Mobile drawer ─────────────────────────────────────────────────────────────
+
+.overlay {
+  position:   fixed;
+  inset:      0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index:    300;
+}
+
+.drawer {
+  position:         fixed;
+  top:              50%;
+  left:             50%;
+  width:            calc(100% - 32px);
+  max-width:        480px;
+  max-height:       85vh;
+  background:       $color-primary-white;
+  z-index:          999;
+  display:          flex;
+  flex-direction:   column;
+  border-radius:    12px;
+  box-shadow:       0 8px 40px rgba(0, 0, 0, 0.18);
+  transform:        translate(-50%, -50%) scale(0.92);
+  opacity:          0;
+  pointer-events:   none;
+  transition:       transform 0.25s ease, opacity 0.25s ease;
+}
+
+.drawerOpen {
+  transform:      translate(-50%, -50%) scale(1);
+  opacity:        1;
+  pointer-events: auto;
+}
+
+.drawerHeader {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         16px 20px;
+  border-bottom:   1px solid $color-light-200;
+  flex-shrink:     0;
+}
+
+.drawerTitle {
+  font-family: $font-figtree;
+  font-size:   16px;
+  font-weight: $fw-bold;
+  color:       $color-dark-800;
+  margin:      0;
+}
+
+.drawerClose {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           36px;
+  height:          36px;
+  background:      none;
+  border:          none;
+  cursor:          pointer;
+  color:           $color-dark-600;
+  border-radius:   50%;
+  transition:      background-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background-color: $color-light-200;
+    color:            $color-primary-black;
+  }
+}
+
+.drawerContent {
+  flex:       1;
+  overflow-y: auto;
+  padding:    0 20px;
+}
+
+.drawerSection {
+  padding:       20px 0;
+  border-bottom: 1px solid $color-light-200;
+
+  &:last-child { border-bottom: none; }
+}
+
+.drawerSectionTitle {
+  font-family:  $font-figtree;
+  font-size:    13px;
+  font-weight:  $fw-semibold;
+  color:        $color-dark-500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin:       0 0 12px;
+}
+
+.drawerFooter {
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+  padding:        16px 20px;
+  border-top:     1px solid $color-light-200;
+  flex-shrink:    0;
+}
+
+.drawerBtn {
+  width: 100%;
+
+  // Make Button fill the wrapper
+  > * { width: 100%; }
+}
