@@ -1,0 +1,28 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.results {
+  @include safe-area;
+  margin: auto;
+  padding-top:    24px;
+  padding-bottom: 40px;
+}
+
+.grid {
+  display:               grid;
+  grid-template-columns: 1fr;
+  gap:                   12px;
+
+  @include md { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @include lg { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @include xl { grid-template-columns: repeat(4, 1fr); }
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align:  center;
+  padding:     48px 0;
+  font-family: $font-figtree;
+  font-size:   16px;
+  color:       $color-dark-400;
+}
