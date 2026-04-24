@@ -1,0 +1,62 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+.hero {
+  min-height: clamp(430px, 62vh, 620px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0 36px;
+}
+
+.heroInner {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.label {
+  margin: 0;
+  font-family: $font-figtree;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: $fw-medium;
+  color: $color-primary-black;
+}
+
+.code {
+  margin: 2px 0 0;
+  font-family: $font-figtree;
+  font-size: 72px;
+  line-height: 1;
+  font-weight: $fw-bold;
+  color: $color-primary-black;
+
+  @include md {
+    font-size: 88px;
+  }
+}
+
+.illustration {
+  width: 250px;
+  height: 250px;
+  margin: 16px 0 22px;
+  object-fit: contain;
+}
+
+.message {
+  max-width: 440px;
+  margin: 0;
+  font-family: $font-figtree;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: $fw-regular;
+  color: $color-dark-600;
+}
+
+.cta {
+  margin-top: 22px;
+}
