@@ -1,0 +1,251 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+// ============================================================
+// CARD SINGLE — CSS Module
+// ============================================================
+
+.card {
+  background:     $color-primary-white;
+  border:         1px solid $color-light-200;
+  border-radius: 16px;
+  display:        flex;
+  flex-direction: row;
+  width:fit-content;
+  height:         100%;
+  min-height: 384px;
+  position: relative;
+  &::after{
+    content: "Destacada";
+    position: absolute;
+    background-color: $color-dark-400;
+    color:$color-primary-white;
+    border-radius: 20px;
+    padding: 0 8px;
+    font-family: $font-figtree;
+    font-weight: 700;
+    font-size: 10.25px;
+    line-height: 15.37px;
+    text-align: center;
+    vertical-align: middle;
+    right: 23px;
+    top: -10px;
+  }
+}
+
+// ── Contenedor botones de selección de color ────────────────────────────────────────────────────
+
+.colorPicker{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  bottom: 50px;
+  p{
+    font-family:$font-figtree;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 12px;
+    letter-spacing: 0px;
+    text-align: center;
+
+  }
+
+    p:first-of-type{
+    font-weight: $fw-bold;
+    font-size: 14px;
+    line-height: 21px;
+
+
+
+  }
+}
+
+ .colors{
+    display: flex;
+    gap: 10px;
+  }
+// ── Botones de selección de color ────────────────────────────────────────────────────
+
+.pick{
+  width: 30px;
+  height: 30px;
+  border: 2px solid $color-dark-100;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  &:hover::after{
+    content: " ";
+    background-color: $color-dark-400;
+    width: 16px;
+    height: 16px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    display: block;
+    position: absolute;
+    left: calc(50% - 8px);
+    bottom: -20px;
+  }
+  &.white{
+   border: 2px solid $color-dark-100;
+   background-color:$color-primary-white;
+  }
+  &.black{
+   border: 2px solid $color-dark-300;
+   background-color:$color-primary-black;
+  }
+  &.gray{
+   border: 2px solid #112631;
+   background-color: #414F65;
+  }
+}
+
+// ── Logo ────────────────────────────────────────────────────
+
+.logo{
+
+  margin: 0 0 60% 0;
+}
+
+// ── Imagen ────────────────────────────────────────────────────
+
+
+.image {
+  object-fit: contain;
+  position: relative;
+  top: -53px;
+}
+
+// ── Body ──────────────────────────────────────────────────────
+
+.body {
+  display:        flex;
+  flex-direction: column;
+  flex:           1;
+  padding:        16px;
+  justify-content: flex-end;
+  max-width: 306px;
+}
+
+// ── Nombre ───────────────────────────────────────────────────
+
+.name {
+  font-family: $font-figtree;
+  font-size:   16px;
+  font-weight: $fw-bold;
+  color:       $color-dark-700;
+  line-height: 1.4;
+  margin: 0;
+
+  width: 75%;
+}
+
+
+
+// ── pill de descuento ───────────────────────────────────────────────────
+
+.discount{
+  background-color: $color-light-200;
+  border-radius: 6px;
+  font-family: $font-figtree;
+  font-weight: $fw-bold;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  vertical-align: super;
+  width: fit-content;
+  padding: 3px 6px;
+  margin-right: 6px;
+
+}
+// ── Precios ───────────────────────────────────────────────────
+
+.pricing {
+  display:     flex;
+  border-top: 1px solid $color-light-200;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap:         8px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  padding-top: 8px;
+  width: 100%;
+
+}
+
+.price {
+  font-family: $font-figtree;
+  font-size:   34px;
+  font-weight: $fw-bold;
+  color:$color-dark-1000;
+}
+
+.originalPrice {
+  font-family:     $font-figtree;
+  font-size:       24px;
+  font-weight:     $fw-bold;
+  color:           $color-dark-400;
+  position: relative;
+
+  &:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1.66px solid $color-primary-red;
+
+  
+  -webkit-transform:rotate(-5deg);
+  -moz-transform:rotate(-5deg);
+  -ms-transform:rotate(-5deg);
+  -o-transform:rotate(-5deg);
+  transform:rotate(-5deg);
+}
+
+}
+
+/*
+Source - https://stackoverflow.com/a/14593540
+Posted by Bojangles, modified by community. See post 'Timeline' for change history
+Retrieved 2026-04-22, License - CC BY-SA 4.0
+*/
+
+
+
+// ── Contenedor de los botones ─────────────────────────────────────────────
+.btnWrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+
+  a{
+    padding: 12px 36px;
+  }
+}
+
+
+.btnVer{
+   color: $color-primary-black;
+
+   &:hover{
+    color: $color-primary-white;
+    border-color: $color-primary-black  ;
+    background-color: $color-primary-black  ;
+  }
+  
+}
+
+.btnCotizar{
+  color: $color-primary-red;
+  border-color: $color-primary-red;
+
+  &:hover{
+    color: $color-primary-white;
+    background-color: $color-primary-red;
+  }
+}
+
+
