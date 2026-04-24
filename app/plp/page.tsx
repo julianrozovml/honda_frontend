@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import MenuCategoryMotorbike from "@/components/drupal/MenuCategoryMotorbike/menu-category-motorbike";
-import PLPFilters from "@/components/drupal/PLPFilters/plp-filters";
+import PLPView from "./plp-view";
+import { MOCK_MOTORBIKES } from "@/components/drupal/PLPFilters/plp-filters.mock";
 import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
 import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
 
@@ -31,38 +32,14 @@ export default function PLP() {
       />
       <MenuCategoryMotorbike
         category={[
-          {
-            id: "todas",
-            title: "Todas",
-            description: "Todas nuestras motos Honda",
-          },
-          {
-            id: "deportivas",
-            title: "Deportivas",
-            icon: "/icons/icon-moto-wht.svg",
-            description: "Motos deportivas",
-          },
-          {
-            id: "cruiser",
-            title: "Cruiser",
-            icon: "/icons/icon-moto-wht.svg",
-            description: "Motos cruiser",
-          },
-          {
-            id: "electricas",
-            title: "Eléctricas",
-            icon: "/icons/icon-moto-wht.svg",
-            description: "Motos eléctricas",
-          },
-          {
-            id: "scooter",
-            title: "Scooter",
-            icon: "/icons/icon-moto-wht.svg",
-            description: "Motos scooter",
-          },
+          { id: "todas",     title: "Todas",      description: "Todas nuestras motos Honda" },
+          { id: "deportivas", title: "Deportivas", icon: "/icons/icon-moto-wht.svg", description: "Motos deportivas" },
+          { id: "cruiser",   title: "Cruiser",     icon: "/icons/icon-moto-wht.svg", description: "Motos cruiser" },
+          { id: "electricas", title: "Eléctricas", icon: "/icons/icon-moto-wht.svg", description: "Motos eléctricas" },
+          { id: "scooter",   title: "Scooter",     icon: "/icons/icon-moto-wht.svg", description: "Motos scooter" },
         ]}
       />
-      <PLPFilters />
+      <PLPView motorbikes={MOCK_MOTORBIKES} />
       <SliderGeneral
         height="400px"
         slides={[
