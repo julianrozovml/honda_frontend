@@ -2,7 +2,7 @@
 @use "@/styles/variables" as *;
 
 // ============================================================
-// CARD SINGLE — CSS Module
+// CARD HIGHLIGHT Motorbike — CSS Module
 // ============================================================
 
 .card {
@@ -11,10 +11,14 @@
   border-radius: 16px;
   display:        flex;
   flex-direction: row;
-  width:fit-content;
   height:         100%;
   min-height: 384px;
   position: relative;
+  
+  //estilos para la vista grid plp
+  grid-column-start: 1;
+  grid-column-end: 3;
+  
   &::after{
     content: "Destacada";
     position: absolute;

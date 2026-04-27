@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SliderGeneral from "@/components/ui/Slider/SliderGeneral/slider-general";
 import MenuCategoryMotorbike from "@/components/drupal/MenuCategoryMotorbike/menu-category-motorbike";
 import PLPView from "./plp-view";
-import { MOCK_MOTORBIKES } from "@/components/drupal/PLPFilters/plp-filters.mock";
+import { MOCK_MOTORBIKES,MOCK_MOTORBIKES_HIGHLIGHTED } from "@/components/drupal/PLPFilters/plp-filters.mock";
 import { SliderOnlineStore } from "@/components/drupal/SliderOnlineStore/slider-online-store";
 import { MOCK_STORE_TABS } from "@/components/drupal/SliderOnlineStore/slider-online-store.mock";
 
@@ -39,7 +39,7 @@ export default function PLP() {
           { id: "scooter",   title: "Scooter",     icon: "/icons/icon-moto-wht.svg", description: "Motos scooter" },
         ]}
       />
-      <PLPView motorbikes={MOCK_MOTORBIKES} />
+      <PLPView motorbikes={MOCK_MOTORBIKES} highlighted={MOCK_MOTORBIKES_HIGHLIGHTED }/>
       <SliderGeneral
         height="400px"
         slides={[

@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Button from "@/components/ui/Buttons/Button/button";
-import type { CardHighlighProps } from "./card-Highligh.types";
-import styles from "./CardHighligh.module.scss";
+import type { CardHighlighMotorbikeProps } from "./card-HighlighMotorbike.types";
+import styles from "./CardHighlighMotorbike.module.scss";
 import { useState } from "react";
 
 
-export default function CardHighligh({
+export default function CardHighlighMotorbike({
   name,
   logoSrc,
   logoAlt,
@@ -18,7 +18,7 @@ export default function CardHighligh({
   buyUrl,
   loading,
   discount
-}: CardHighlighProps) {
+}: CardHighlighMotorbikeProps) {
   
   const [selected,setSelected]=useState(0);
   return (

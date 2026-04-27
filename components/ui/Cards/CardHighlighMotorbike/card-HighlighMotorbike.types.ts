@@ -2,7 +2,7 @@
 // CARD Single— Types
 // ============================================================
 
-export interface CardHighlighProps {
+export interface CardHighlighMotorbikeProps {
   id: string;
   /** URL del Icono de la marca */
   logoSrc:string;

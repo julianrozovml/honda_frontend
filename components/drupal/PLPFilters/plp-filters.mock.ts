@@ -1,4 +1,21 @@
+import { CardHighlighMotorbikeProps } from "@/components/ui/Cards/CardHighlighMotorbike/card-HighlighMotorbike.types";
 import type { CardSingleMotorbikeProps } from "@/components/ui/Cards/CardSingleMotorbike/card-single-motorbike.types";
+
+
+export const MOCK_MOTORBIKES_HIGHLIGHTED: CardHighlighMotorbikeProps = 
+  
+  {
+      id: "0",
+      name: "CB 125F Twister",
+      logoSrc: "/images/logotipomoto.png",
+      logoAlt: "Honda",
+      imagesSrc: ["/images/moto.png","/images/moto2.png","/images/moto3.png"],
+      price: "14.700.000",
+      originalPrice:"15.700.000",
+      buyUrl: "#",
+      buttons: true,
+      discount:10
+  }
 
 export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
   {
@@ -11,8 +28,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     price: "8.990.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "125",
-    tecnologia: "manual",
+    displacement: "125",
+     transmission: "manual",
   },
   {
     id: "2",
@@ -25,8 +42,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     originalPrice: "13.500.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "150+",
-    tecnologia: "manual",
+    displacement: "150+",
+     transmission: "manual",
   },
   {
     id: "3",
@@ -38,8 +55,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     price: "10.290.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "150+",
-    tecnologia: "manual",
+    displacement: "150+",
+     transmission: "manual",
   },
   {
     id: "4",
@@ -51,8 +68,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     price: "5.490.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "110",
-    tecnologia: "automatica",
+    displacement: "110",
+     transmission: "automatica",
   },
   {
     id: "5",
@@ -65,8 +82,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     originalPrice: "26.000.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "150+",
-    tecnologia: "semiautomatica",
+    displacement: "150+",
+     transmission: "semiautomatica",
   },
   {
     id: "6",
@@ -78,8 +95,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     price: "9.190.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "150+",
-    tecnologia: "manual",
+    displacement: "150+",
+     transmission: "manual",
   },
   {
     id: "7",
@@ -91,8 +108,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     price: "7.290.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "125",
-    tecnologia: "automatica",
+    displacement: "125",
+     transmission: "automatica",
   },
   {
     id: "8",
@@ -104,8 +121,8 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     price: "4.890.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "110",
-    tecnologia: "automatica",
+    displacement: "110",
+     transmission: "automatica",
   },
   {
     id: "9",
@@ -118,7 +135,7 @@ export const MOCK_MOTORBIKES: CardSingleMotorbikeProps[] = [
     originalPrice: "18.200.000",
     buyUrl: "#",
     buttons: true,
-    cilindraje: "150+",
-    tecnologia: "eclutch",
+    displacement: "150+",
+     transmission: "eclutch",
   },
 ];
