@@ -1,0 +1,45 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid $color-light-200;
+  border-radius: 14px;
+  background-color: $color-primary-white;
+  padding: 14px 14px 13px;
+
+  @include md {
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+}
+
+.icon {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  color: $color-light-800;
+  margin-top: 2px;
+
+  @include md {
+    margin-top: 0;
+  }
+}
+
+.text {
+  margin: 0;
+  color: $color-dark-700;
+  font-family: $font-figtree;
+  font-size: 13px;
+  font-weight: $fw-regular;
+  line-height: 1.45;
+
+  @include md {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}

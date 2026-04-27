@@ -48,16 +48,25 @@
 }
 
 .message {
-  width: 600px;
-  max-width: 600px;
+  width: auto;
+  max-width: 100%;
   margin: 0;
   font-family: $font-figtree;
   font-size: 18px;
   line-height: 1.5;
   font-weight: $fw-regular;
   color: $color-dark-600;
+
+  @include md{
+    width: 600px;
+    max-width: 600px;
+  }
 }
 
 .cta {
   margin-top: 22px;
+}
+
+.highlightPreview {
+  margin-bottom: 24px;
 }
