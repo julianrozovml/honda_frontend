@@ -15,7 +15,7 @@ export interface CardSingleMotorbikeProps {
   buyUrl: string;
   loading?: "eager" | "lazy";
   /** Valor numérico del cilindraje, ej: "99", "110", "125", "150+" */
-  cilindraje?: string;
+  displacement?: string;
   /** Tecnología de transmisión, ej: "automatica", "manual" */
-  tecnologia?: string;
+  transmission?: string;
 }
