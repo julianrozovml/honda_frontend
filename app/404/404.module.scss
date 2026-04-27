@@ -36,7 +36,7 @@
   color: $color-primary-black;
 
   @include md {
-    font-size: 88px;
+    font-size: 64px;
   }
 }
 
@@ -48,10 +48,11 @@
 }
 
 .message {
-  max-width: 440px;
+  width: 600px;
+  max-width: 600px;
   margin: 0;
   font-family: $font-figtree;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: $fw-regular;
   color: $color-dark-600;
